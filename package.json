@@ -1,0 +1,34 @@
+{
+  "name": "flight-agent-eval",
+  "version": "1.0.0",
+  "description": "Evaluation pipeline for flight search agents using LangChain + MCP",
+  "type": "module",
+  "main": "eval.js",
+  "scripts": {
+    "eval": "node eval.js",
+    "test": "node eval.js 3",
+    "eval:quick": "node eval.js 5",
+    "eval:standard": "node eval.js 10",
+    "eval:full": "node eval.js 20"
+  },
+  "keywords": [
+    "flight",
+    "agent",
+    "evaluation",
+    "langchain",
+    "mcp",
+    "litellm",
+    "ai"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@langchain/mcp-adapters": "^0.1.0",
+    "@langchain/openai": "^0.3.0",
+    "dotenv": "^16.4.0",
+    "langchain": "^0.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
