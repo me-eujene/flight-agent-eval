@@ -1,0 +1,44 @@
+# SearXNG Configuration for Flight Agent Eval
+use_default_settings: true
+
+general:
+  debug: false
+  instance_name: "SearXNG for Flight Search"
+
+search:
+  safe_search: 0
+  autocomplete: ""
+  default_lang: "en"
+  formats:
+    - html
+    - json
+
+server:
+  secret_key: "changeme"  # Change this in production
+  limiter: false
+  image_proxy: false
+
+redis:
+  url: redis://redis:6379/0
+
+ui:
+  static_use_hash: true
+  query_in_title: true
+
+engines:
+  - name: google
+    engine: google
+    shortcut: go
+
+  - name: duckduckgo
+    engine: duckduckgo
+    shortcut: ddg
+
+  - name: bing
+    engine: bing
+    shortcut: bi
+
+enabled_plugins:
+  - 'Hash plugin'
+  - 'Search on category select'
+  - 'Tracker URL remover'

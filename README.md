@@ -4,13 +4,26 @@ Evaluation pipeline for testing flight search agent accuracy using a two-agent a
 
 ## Quick Start
 
+### 1. Start Docker Services (LiteLLM + SearXNG)
+
+```bash
+# Copy and configure environment
+cp .env.example .env
+# Edit .env and add your Mistral API key from https://console.mistral.ai/
+
+# Start services
+docker-compose up -d
+
+# Verify services are running
+curl http://localhost:4000/health  # LiteLLM
+curl http://localhost:8080         # SearXNG
+```
+
+### 2. Install and Run Evaluation
+
 ```bash
 # Install dependencies
 npm install
-
-# Copy and configure environment
-cp .env.example .env
-# Edit .env with your API keys
 
 # Run evaluation
 node eval.js 10  # Test with 10 random flights
@@ -18,10 +31,15 @@ node eval.js 10  # Test with 10 random flights
 
 ## Requirements
 
+- **Docker** & Docker Compose
 - **Node.js** 18+
-- **LiteLLM proxy** running (with Mistral models)
-- **MCP SearXNG server** running
-- API keys configured in `.env`
+- **Mistral API key** from https://console.mistral.ai/
+
+### What Docker Provides
+
+- **LiteLLM** (port 4000): Unified API for Mistral models
+- **SearXNG** (port 8080): Privacy-respecting metasearch engine
+- **Redis**: Caching for SearXNG
 
 ## Architecture
 
@@ -31,13 +49,40 @@ node eval.js 10  # Test with 10 random flights
 
 ## Configuration
 
-Edit `.env`:
+### Environment Variables (`.env`)
 
 ```env
+# Required: Get from https://console.mistral.ai/
+MISTRAL_API_KEY=your-mistral-api-key-here
+
+# LiteLLM (defaults work with docker-compose)
 LITELLM_URL=http://localhost:4000
-LITELLM_API_KEY=your-api-key-here
+LITELLM_API_KEY=sk-local-dev-key-12345
+LITELLM_MASTER_KEY=sk-master-local-dev-key-12345
+
+# MCP SearXNG
 MCP_SEARXNG_URL=http://localhost:3000/mcp
+
+# Optional
 DEFAULT_SAMPLE_SIZE=10
+```
+
+### Docker Services
+
+Stop services:
+```bash
+docker-compose down
+```
+
+View logs:
+```bash
+docker-compose logs -f litellm
+docker-compose logs -f searxng
+```
+
+Restart services:
+```bash
+docker-compose restart
 ```
 
 ## Usage

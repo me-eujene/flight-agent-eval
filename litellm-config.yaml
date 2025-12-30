@@ -1,0 +1,25 @@
+model_list:
+  - model_name: mistral-large
+    litellm_params:
+      model: mistral/mistral-large-latest
+      api_key: os.environ/MISTRAL_API_KEY
+
+  - model_name: mistral-small
+    litellm_params:
+      model: mistral/mistral-small-latest
+      api_key: os.environ/MISTRAL_API_KEY
+
+litellm_settings:
+  drop_params: true
+  set_verbose: false
+  cache: false
+
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
+  allowed_origins: ["*"]  # Allow all origins for local development
+  store_model_in_db: false
+
+router_settings:
+  num_retries: 2
+  timeout: 600
+  max_parallel_requests: 100
