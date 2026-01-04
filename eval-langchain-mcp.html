@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LangChain + MCP Flight Parser Evaluation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="importmap">
+    {
+        "imports": {
+            "@langchain/core": "https://esm.sh/@langchain/core@0.3.0",
+            "@langchain/openai": "https://esm.sh/@langchain/openai@0.3.0",
+            "langchain": "https://esm.sh/langchain@0.3.0",
+            "@langchain/mcp-adapters": "https://esm.sh/@langchain/mcp-adapters@0.1.0"
+        }
+    }
+    </script>
+    <script type="module">
+        import { ChatOpenAI } from '@langchain/openai';
+        import { createAgent } from 'langchain';
+        import { MultiServerMCPClient } from '@langchain/mcp-adapters';
+
+        // Configuration
+        const LITELLM_URL = 'http://localhost:4000';
+        const LITELLM_KEY = 'sk-local-dev-key-12345';
+        const MCP_SEARXNG_URL = 'http://localhost:3000/mcp';
+
+        // Agent 2 JSON Schema for structured output
+        const AGENT2_SCHEMA = {
+            type: "object",
+            properties: {
+                flightNumber: { type: ["string", "null"] },
+                airlineCode: { type: ["string", "null"] },
+                departureAirportCode: { type: ["string", "null"] },
+                arrivalAirportCode: { type: ["string", "null"] },
+                flightDate: { type: ["string", "null"] },
+                flightTime: { type: ["string", "null"] },
+                aircraftName: {
+                    type: "string",
+                    enum: [
+                        "Airbus A220", "Airbus A319", "Airbus A320", "Airbus A321",
+                        "Airbus A330", "Airbus A350", "Airbus A380", "ATR 42/72",
+                        "Boeing 717", "Boeing 737NG", "Boeing 737MAX", "Boeing 747",
+                        "Boeing 757", "Boeing 767", "Boeing 777", "Boeing 787",
+                        "Bombardier CRJ", "DHC Dash 8", "Embraer ERJ 135",
+                        "Embraer ERJ 145", "Embraer E170", "Embraer E190",
+                        "Embraer E175-E2", "Embraer E190-E2", "Embraer E195-E2",
+                        "Comac C909", "Comac C919", "Superjet 100", "Tu-204/214",
+                        "Cessna 402", "Il-96", "Other"
+                    ]
+                },
+                flightNumberConfidence: { type: "number" },
+                airlineCodeConfidence: { type: "number" },
+                departureAirportConfidence: { type: "number" },
+                arrivalAirportConfidence: { type: "number" },
+                flightDateConfidence: { type: "number" },
+                flightTimeConfidence: { type: "number" },
+                aircraftNameConfidence: { type: "number" },
+                validationNotes: { type: "string" }
+            },
+            required: [
+                "flightNumberConfidence", "airlineCodeConfidence",
+                "departureAirportConfidence", "arrivalAirportConfidence",
+                "flightDateConfidence", "flightTimeConfidence",
+                "aircraftNameConfidence", "validationNotes"
+            ]
+        };
+
+        class LangChainFlightParser {
+            constructor() {
+                this.mcpClient = null;
+                this.mcpTools = null;
+                this.model = null;
+            }
+
+            async initialize() {
+                if (this.mcpClient) return; // Already initialized
+
+                console.log('Initializing MCP client...');
+
+                // Connect to MCP SearXNG server
+                this.mcpClient = new MultiServerMCPClient({
+                    mcpServers: {
+                        searxng: {
+                            url: MCP_SEARXNG_URL
+                        }
+                    }
+                });
+
+                // Get tools (automatically wrapped)
+                this.mcpTools = await this.mcpClient.getTools();
+                console.log(`Loaded ${this.mcpTools.length} MCP tools:`, this.mcpTools.map(t => t.name));
+
+                // Initialize model pointing to liteLLM
+                this.model = new ChatOpenAI({
+                    model: 'mistral-large',
+                    configuration: {
+                        baseURL: `${LITELLM_URL}/v1`,
+                        apiKey: LITELLM_KEY
+                    },
+                    temperature: 0
+                });
+            }
+
+            async cleanup() {
+                if (this.mcpClient) {
+                    await this.mcpClient.close();
+                    this.mcpClient = null;
+                    this.mcpTools = null;
+                }
+            }
+
+            getAgent1Prompt(userQuery) {
+                const currentDate = new Date().toISOString();
+                return `You are an elite flight information research assistant with access to web search tooling. Your job is to use search to accurately identify flight details according to the data you've been provided.
+
+CURRENT DATE/TIME (UTC): ${currentDate}
+
+USER QUERY: ${userQuery}
+
+TASK:
+Search for this flight and gather required information as possible about the flight. Focus on these three websites for your search:
+1. FlightAware.com
+2. FlightRadar24.com
+3. aviability.com (most often shows flight time in a snippet)
+
+SEARCH STRATEGY:
+1. Extract key details from query (airline, route, date, duration, flight number, aircaft type), identify missing datapoints.
+2. Formulate Google Search queries to find missing data.
+3. Review the results, focus on finding the missing pieces of data: if data and route is available, find the flight number, duration and aircraft type. Pay attention to dates and trip direction, if search results show a return flight, ignore it.
+4. Pay attention to the time: it is easy to confuse duration with scheduled departure/arrival times. Search results most likely to show scheduled times, not duration, user is most likely providing duration. In case search results contain only flight departure/arrival times, calculate the flight time yourself.
+4. If specific datapoints are present in search query, treat them as ground truth: user may give you a copy of their actual booking confirmation or itinerary, you don't need to verify those datapoints, just find the missing ones.
+
+REQUIRED OUTPUT FORMAT:
+---
+FLIGHT NUMBER: [flight number found, or "NOT FOUND". When more than one flight number exists for the route/date, pick the fastest or earliest one.]
+Flight Number Source: [Website name (FlightAware, FlightRadar24, airline site only)]
+Flight Number Notes: [Why you decided to pick this option. Be concise. Double-check to ensure this is a correct route direction (AMS-BRU is different from BRU-AMS)]
+
+AIRLINE CODE: [IATA 2-letter code like "UA", or "NOT FOUND"]
+Airline Source: [Website name, comments]
+
+DEPARTURE AIRPORT: [IATA 3-letter code like "JFK", or "NOT FOUND"]
+Departure Source: [Website name, comments]
+
+ARRIVAL AIRPORT: [IATA 3-letter code like "LAX", or "NOT FOUND"]
+Arrival Source: [[Website name, comments]
+
+FLIGHT DATE: [DD-MM-YYYY format, or "NOT FOUND"]
+
+FLIGHT TIME: [HH:MM in 24-hour format, or "NOT FOUND". This is SCHEDULED OR ACTUAL FLIGHT DURATION, not departure or arrival time.]
+Time Source: [[Website name (FlightAware, FlightRadar24, airline site only)]
+Time Notes: [Why you decided to pick this option. Be concise.]
+
+AIRCRAFT TYPE: [Full aircraft name required. Examples: "Airbus A321", "Boeing 737-800", "Embraer E190". If you find codes like "32B", "73H", "E90", convert them to full names: 32B = Airbus A321, 73H = Boeing 737-800, E90 = Embraer E190. Write "NOT FOUND" only if no aircraft information exists.]
+Aircraft Source: [[Website name (FlightAware, FlightRadar24, airline site only)]
+Aircraft Notes: [If you converted a code to full name, mention the original code here]
+
+OVERALL ASSESSMENT:
+[2-3 sentences summarizing:
+- Did you find a definitive match for this flight?
+- What is missing, what present, what is an educated guess?. Provide short reasoning.]
+---
+
+
+AIRCRAFT NAME MATCHING - CRITICAL:
+
+This is a HIGH IMPORTANCE field. FOCUS, You MUST attempt to map ANY aircraft information from Agent 1's report to the valid list below. NEVER null if agent 1 response MENTIONS an aircraft name. Use the mapping examples below to convert codes and variants to valid types
+
+AIRCRAFT CODE CONVERSION TABLE (use this to convert IATA aircraft codes to full names):
+32A/32B/32S/32N = Airbus A321 (variants: standard/neo/sharklet)
+320/32Q = Airbus A320
+319 = Airbus A319
+223 = Airbus A220
+333/33X/339 = Airbus A330
+359 = Airbus A350
+388 = Airbus A380
+73G/73H/73J = Boeing 737-700/737-800/737-900 (Boeing 737NG family)
+7M8/7M9/738/739 = Boeing 737 MAX 8/MAX 9
+744/74H = Boeing 747
+753/75F/75M = Boeing 757
+763/764/76W = Boeing 767
+772/773/77W = Boeing 777
+787/788/789 = Boeing 787
+E70/E75/E90/E95 = Embraer E170/E175/E190/E195
+CR7/CR9/CRJ = Bombardier CRJ (variants)
+AT7/AT5 = ATR 72/ATR 42
+DH4/DH8/DHC = DHC Dash 8
+
+Only use aircraft names from this list:
+Airbus A220
+Airbus A319
+Airbus A320
+Airbus A321
+Airbus A330
+Airbus A350
+Airbus A380
+ATR 42/72
+Boeing 717
+Boeing 737NG
+Boeing 737MAX
+Boeing 747
+Boeing 757
+Boeing 767
+Boeing 777
+Boeing 787
+Bombardier CRJ
+DHC Dash 8
+Embraer ERJ 135
+Embraer ERJ 145
+Embraer E170
+Embraer E190
+Embraer E175-E2
+Embraer E190-E2
+Embraer E195-E2
+Comac C909
+Comac C919
+Superjet 100
+Tu-204/214
+Cessna 402
+Il-96
+Other
+
+CRITICAL RULES:
+1. If you cannot find reliable information, write "NOT FOUND" - do NOT guess
+2. For aircraft name, always convert codes to full names using table above
+3. Data provided by user is alwasys ground truth - focus on finding missing data only
+
+Example Queries:
+"13 Oct 2025 Brussels Riga 2:12 bt604 A320" -> All data present except aircraft type: Brussels to Riga flight BT604 on 13 Oct 2025, duration 2:12, aircraft name is Airbus A320.
+"Yesterday AA flight from NYC to Miami" -> Incomplete data, find flight number, date and aircraft type.
+"Amsterdam (AMS) to Verona (VRN) Sat 22 Nov · 08:55 - Sat 22 Nov · 10:35 Direct · 1h 40m · Economy Transavia Airlines · HV5465" -> likely a copy of itinerary, all data present except aircraft type, find aircraft type only.
+
+Now search and report for the user's query.`;
+            }
+
+            getAgent2Prompt(userQuery, agent1Response) {
+                const currentDate = new Date().toISOString();
+                return `You are a flight data validator and matcher. You will receive the ORIGINAL USER QUERY and a research report from an information extraction agent. Your job is to convert it into structured JSON with confidence scores. You have two modes of operation: extract data as-is when it conforms to the schema requirements, and santitise/adjust the data, when it does not.
+
+CURRENT DATE/TIME (UTC): ${currentDate}
+
+ORIGINAL USER QUERY:
+"${userQuery}"
+
+AGENT 1 RESEARCH REPORT:
+---
+${agent1Response}
+---
+
+YOUR TASK:
+1. Review the original user query to understand what data the user provided vs what Agent 1 had to find
+2. Extract each data field from Agent 1's report
+3. Assign confidence scores (0.0 to 1.0) based on source quality
+4. If user provided data in their query (e.g., copied from itinerary), give that data higher confidence (0.95+)
+5. Find the closest match for aircraft type against provided list of known aircraft names.
+6. Return structured JSON
+
+
+FIELD EXTRACTION RULES:
+
+1. **flightNumber**: Numeric only (e.g., "2453" not "UA2453"). Null if "NOT FOUND" or uncertain.
+2. **airlineCode**: IATA 2-letter code (e.g., "UA", "AA", "DL"). Null if not found.
+3. **departureAirportCode**: IATA 3-letter code (e.g., "JFK"). Must be uppercase. Null if not found. Use only airport codes, not city codes.
+4. **arrivalAirportCode**: IATA 3-letter code (e.g., "LAX"). Must be uppercase. Null if not found. Use only airport codes, not city codes.
+5. **flightDate**: DD-MM-YYYY format exactly. Null if not found or ambiguous.
+6. **flightTime**: HH:MM in 24-hour format (e.g., "14:30"). Null if not found.
+7. **aircraftName**: MUST use enum value from the valid aircraft list. If Agent 1 found an aircraft not in the list, map to closest match. If Agent 1 wrote "NOT FOUND" or mentioned no aircraft at all, use "Other".
+8. **validationNotes**: 1-2 sentences summarizing key validation issues.
+
+CONFIDENCE SCORING GUIDELINES:
+**0.95-1.0 (Very High):**
+- Data explicitly provided in user's original query (e.g., flight number, date, route from itinerary, aircraft name)
+- Data from FlightAware with specific flight history URL
+- Data from official airline website with confirmation
+- Multiple authoritative sources agree
+
+**0.80-0.94 (High):**
+- Data from FlightRadar24 with specific tracking
+- Data from reputable aviation database
+- Single authoritative source
+
+**0.60-0.79 (Medium):**
+- Data from airline schedule (not confirmed operated)
+- Partial information from authoritative source
+
+**0.40-0.59 (Low):**
+- Data inferred from route patterns
+- Conflicting information across sources
+- Agent expressed uncertainty ("possibly", "might be")
+
+**0.0-0.39 (Very Low):**
+- Agent wrote "NOT FOUND" or "UNCERTAIN"
+- No reliable source cited
+- Agent admitted to guessing
+
+EXAMPLE OF A COMPLETE HIGH-CONFIDENCE RESPONSE:
+{
+  "flightNumber": "1513",
+  "airlineCode": "KL",
+  "departureAirportCode": "AMS",
+  "arrivalAirportCode": "BCN",
+  "flightDate": "03-11-2025",
+  "flightTime": "01:57",
+  "aircraftName": "Airbus A320",
+  "flightNumberConfidence": 0.95,
+  "airlineCodeConfidence": 0.95,
+  "departureAirportConfidence": 0.95,
+  "arrivalAirportConfidence": 0.95,
+  "flightDateConfidence": 0.95,
+  "flightTimeConfidence": 0.85,
+  "aircraftNameConfidence": 0.95,
+  "validationNotes": "Flight details extracted from FlightAware.com and FlightRadar24.com. Flight date inferred from 'yesterday' relative to current date. Aircraft type mapped from code '320' to 'Airbus A320'."
+}
+
+Now validate and structure the research report above.`;
+            }
+
+            async runAgent1(userQuery) {
+                const startTime = performance.now();
+
+                await this.initialize();
+
+                const prompt = this.getAgent1Prompt(userQuery);
+
+                try {
+                    // Create agent with MCP tools
+                    const agent = createAgent({
+                        llm: this.model,
+                        tools: this.mcpTools,
+                        systemPrompt: prompt
+                    });
+
+                    console.log('Invoking LangChain agent with search tools...');
+
+                    // Invoke agent - handles tool loop automatically
+                    const result = await agent.invoke({
+                        messages: [{ role: 'user', content: userQuery }]
+                    });
+
+                    const duration = performance.now() - startTime;
+                    const finalMessage = result.messages[result.messages.length - 1];
+
+                    return {
+                        success: true,
+                        researchReport: finalMessage.content,
+                        usage: result.usage || null,
+                        duration: duration,
+                        toolCallsCount: result.messages.filter(m => m.tool_calls?.length > 0).length
+                    };
+
+                } catch (error) {
+                    console.error('Agent 1 error:', error);
+                    return {
+                        success: false,
+                        error: error.message,
+                        researchReport: '',
+                        duration: performance.now() - startTime
+                    };
+                }
+            }
+
+            async runAgent2(userQuery, agent1Report) {
+                const startTime = performance.now();
+                const prompt = this.getAgent2Prompt(userQuery, agent1Report);
+
+                try {
+                    const response = await fetch(`${LITELLM_URL}/v1/chat/completions`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${LITELLM_KEY}`
+                        },
+                        body: JSON.stringify({
+                            model: 'mistral-small',
+                            messages: [{ role: 'user', content: prompt }],
+                            response_format: {
+                                type: 'json_schema',
+                                json_schema: {
+                                    name: 'FlightData',
+                                    strict: true,
+                                    schema: AGENT2_SCHEMA
+                                }
+                            },
+                            temperature: 0
+                        })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`liteLLM API error: ${response.status} ${response.statusText}`);
+                    }
+
+                    const result = await response.json();
+                    const duration = performance.now() - startTime;
+                    const responseText = result.choices[0].message.content;
+
+                    let flightData = {};
+                    try {
+                        flightData = JSON.parse(responseText);
+                    } catch (error) {
+                        console.error('JSON parse error:', error);
+                        console.error('Response text:', responseText);
+                    }
+
+                    return {
+                        success: true,
+                        flightData: flightData,
+                        rawResponse: responseText,
+                        usage: result.usage || null,
+                        duration: duration
+                    };
+                } catch (error) {
+                    console.error('Agent 2 error:', error);
+                    return {
+                        success: false,
+                        error: error.message,
+                        flightData: {},
+                        rawResponse: '',
+                        duration: performance.now() - startTime
+                    };
+                }
+            }
+
+            async runFullPipeline(userQuery) {
+                const pipelineStartTime = performance.now();
+
+                // Step 1: Agent 1 - Research with LangChain
+                const agent1Result = await this.runAgent1(userQuery);
+                if (!agent1Result.success) {
+                    return {
+                        success: false,
+                        stage: 'agent1',
+                        agent1: agent1Result,
+                        agent2: null,
+                        totalDuration: performance.now() - pipelineStartTime
+                    };
+                }
+
+                // Step 2: Agent 2 - Validation
+                const agent2Result = await this.runAgent2(userQuery, agent1Result.researchReport);
+                if (!agent2Result.success) {
+                    return {
+                        success: false,
+                        stage: 'agent2',
+                        agent1: agent1Result,
+                        agent2: agent2Result,
+                        totalDuration: performance.now() - pipelineStartTime
+                    };
+                }
+
+                return {
+                    success: true,
+                    stage: 'complete',
+                    agent1: agent1Result,
+                    agent2: agent2Result,
+                    totalDuration: performance.now() - pipelineStartTime
+                };
+            }
+        }
+
+        // Make globally available
+        window.LangChainFlightParser = LangChainFlightParser;
+
+        // Demo functionality
+        window.addEventListener('DOMContentLoaded', async () => {
+            const parser = new LangChainFlightParser();
+            const runButton = document.getElementById('runButton');
+            const textInput = document.getElementById('flightText');
+            const resultsDiv = document.getElementById('results');
+            const loadingDiv = document.getElementById('loading');
+            const statusDiv = document.getElementById('status');
+
+            // Test queries
+            const testQueries = [
+                "Dublin Amsterdam on Aer Lingus 10 Nov 2025",
+                "Atlanta Amsterdam on KLM 01 Nov 2025",
+                "Norwich Amsterdam on KLM 03 Dec 2025"
+            ];
+
+            // Batch test data with ground truth
+            const batchTests = [
+                {
+                    query: "Dublin Amsterdam on Aer Lingus 10 Nov 2025",
+                    groundTruth: {
+                        flightNumber: "602",
+                        airlineCode: "EI",
+                        departureAirport: "DUB",
+                        arrivalAirport: "AMS",
+                        flightDate: "10-11-2025",
+                        aircraftName: "Airbus A320",
+                        flightTime: "01:11"
+                    }
+                },
+                {
+                    query: "Atlanta Amsterdam on KLM 01 Nov 2025",
+                    groundTruth: {
+                        flightNumber: "624",
+                        airlineCode: "KL",
+                        departureAirport: "ATL",
+                        arrivalAirport: "AMS",
+                        flightDate: "01-11-2025",
+                        aircraftName: "Boeing 787",
+                        flightTime: "07:10"
+                    }
+                },
+                {
+                    query: "Norwich Amsterdam on KLM 03 Dec 2025",
+                    groundTruth: {
+                        flightNumber: "1054",
+                        airlineCode: "KL",
+                        departureAirport: "NWI",
+                        arrivalAirport: "AMS",
+                        flightDate: "03-12-2025",
+                        aircraftName: "Embraer E175",
+                        flightTime: "00:36"
+                    }
+                }
+            ];
+
+            // Initialize and show status
+            try {
+                statusDiv.textContent = 'Initializing MCP client and loading tools...';
+                await parser.initialize();
+                statusDiv.textContent = `✓ Ready - Loaded ${parser.mcpTools.length} tools from MCP SearXNG`;
+                statusDiv.className = 'text-sm text-green-600 mb-4';
+            } catch (error) {
+                statusDiv.textContent = `✗ Initialization failed: ${error.message}`;
+                statusDiv.className = 'text-sm text-red-600 mb-4';
+                console.error('Initialization error:', error);
+            }
+
+            // Add test query buttons
+            const queriesDiv = document.getElementById('testQueries');
+            testQueries.forEach((query) => {
+                const button = document.createElement('button');
+                button.className = 'px-3 py-2 text-sm bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition-colors';
+                button.textContent = query;
+                button.onclick = () => {
+                    textInput.value = query;
+                };
+                queriesDiv.appendChild(button);
+            });
+
+            // Run button handler
+            runButton.addEventListener('click', async () => {
+                const text = textInput.value.trim();
+
+                if (!text) {
+                    alert('Please enter a flight query');
+                    return;
+                }
+
+                loadingDiv.classList.remove('hidden');
+                resultsDiv.innerHTML = '';
+                runButton.disabled = true;
+
+                try {
+                    const result = await parser.runFullPipeline(text);
+                    displayResults(result);
+                } catch (error) {
+                    console.error('Unexpected error:', error);
+                    resultsDiv.innerHTML = `
+                        <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+                            <h3 class="text-lg font-semibold text-red-800 mb-2">Unexpected Error</h3>
+                            <div class="text-red-600">${error.message}</div>
+                            <pre class="text-xs mt-2 bg-red-100 p-2 rounded">${error.stack}</pre>
+                        </div>
+                    `;
+                } finally {
+                    loadingDiv.classList.add('hidden');
+                    runButton.disabled = false;
+                }
+            });
+
+            function displayResults(result) {
+                const agent1 = result.agent1;
+                const agent2 = result.agent2;
+
+                let html = `
+                    <div class="space-y-6">
+                        <!-- Summary -->
+                        <div class="bg-gray-50 border border-gray-300 rounded-lg p-4">
+                            <h3 class="text-lg font-semibold mb-2">Pipeline Summary</h3>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div><strong>Status:</strong> <span class="${result.success ? 'text-green-600' : 'text-red-600'}">${result.success ? '✓ Success' : '✗ Failed'}</span></div>
+                                <div><strong>Total Duration:</strong> ${(result.totalDuration / 1000).toFixed(2)}s</div>
+                                <div><strong>Agent 1 Duration:</strong> ${agent1 ? (agent1.duration / 1000).toFixed(2) + 's' : 'N/A'}</div>
+                                <div><strong>Agent 2 Duration:</strong> ${agent2 ? (agent2.duration / 1000).toFixed(2) + 's' : 'N/A'}</div>
+                            </div>
+                        </div>
+
+                        <!-- Agent 1 Results -->
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                            <h3 class="text-lg font-semibold text-blue-800 mb-3">Agent 1: Research (LangChain + MCP SearXNG)</h3>
+
+                            ${agent1.error ? `
+                                <div class="bg-red-50 border border-red-200 rounded p-3 mb-3">
+                                    <div class="text-red-600 font-semibold">${agent1.error}</div>
+                                </div>
+                            ` : ''}
+
+                            ${agent1.success ? `
+                                <div class="bg-white rounded p-3 mb-3">
+                                    <h4 class="font-semibold mb-2">Research Report:</h4>
+                                    <pre class="text-xs bg-gray-50 p-3 rounded overflow-auto whitespace-pre-wrap">${agent1.researchReport}</pre>
+                                </div>
+
+                                ${agent1.usage ? `
+                                    <div class="bg-white rounded p-3">
+                                        <h4 class="font-semibold mb-2">Token Usage:</h4>
+                                        <div class="text-xs space-y-1">
+                                            <div>Input: ${agent1.usage.prompt_tokens || 0} tokens</div>
+                                            <div>Output: ${agent1.usage.completion_tokens || 0} tokens</div>
+                                            <div>Total: ${agent1.usage.total_tokens || 0} tokens</div>
+                                            <div>Tool Calls: ${agent1.toolCallsCount || 0}</div>
+                                        </div>
+                                    </div>
+                                ` : ''}
+                            ` : ''}
+                        </div>
+
+                        <!-- Agent 2 Results -->
+                        ${agent2 ? `
+                            <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                                <h3 class="text-lg font-semibold text-green-800 mb-3">Agent 2: Validation (Structured Output)</h3>
+
+                                ${agent2.error ? `
+                                    <div class="bg-red-50 border border-red-200 rounded p-3 mb-3">
+                                        <div class="text-red-600 font-semibold">${agent2.error}</div>
+                                    </div>
+                                ` : ''}
+
+                                ${agent2.success ? `
+                                    <div class="bg-white rounded p-3 mb-3">
+                                        <h4 class="font-semibold mb-2">Structured Flight Data:</h4>
+                                        <div class="grid grid-cols-2 gap-3 text-sm">
+                                            <div>
+                                                <div class="text-gray-600">Flight Number</div>
+                                                <div class="font-mono">${agent2.flightData.flightNumber || 'null'}</div>
+                                                <div class="text-xs text-gray-500">Confidence: ${((agent2.flightData.flightNumberConfidence || 0) * 100).toFixed(0)}%</div>
+                                            </div>
+                                            <div>
+                                                <div class="text-gray-600">Airline</div>
+                                                <div class="font-mono">${agent2.flightData.airlineCode || 'null'}</div>
+                                                <div class="text-xs text-gray-500">Confidence: ${((agent2.flightData.airlineCodeConfidence || 0) * 100).toFixed(0)}%</div>
+                                            </div>
+                                            <div>
+                                                <div class="text-gray-600">Departure</div>
+                                                <div class="font-mono">${agent2.flightData.departureAirportCode || 'null'}</div>
+                                                <div class="text-xs text-gray-500">Confidence: ${((agent2.flightData.departureAirportConfidence || 0) * 100).toFixed(0)}%</div>
+                                            </div>
+                                            <div>
+                                                <div class="text-gray-600">Arrival</div>
+                                                <div class="font-mono">${agent2.flightData.arrivalAirportCode || 'null'}</div>
+                                                <div class="text-xs text-gray-500">Confidence: ${((agent2.flightData.arrivalAirportConfidence || 0) * 100).toFixed(0)}%</div>
+                                            </div>
+                                            <div>
+                                                <div class="text-gray-600">Date</div>
+                                                <div class="font-mono">${agent2.flightData.flightDate || 'null'}</div>
+                                                <div class="text-xs text-gray-500">Confidence: ${((agent2.flightData.flightDateConfidence || 0) * 100).toFixed(0)}%</div>
+                                            </div>
+                                            <div>
+                                                <div class="text-gray-600">Time</div>
+                                                <div class="font-mono">${agent2.flightData.flightTime || 'null'}</div>
+                                                <div class="text-xs text-gray-500">Confidence: ${((agent2.flightData.flightTimeConfidence || 0) * 100).toFixed(0)}%</div>
+                                            </div>
+                                            <div class="col-span-2">
+                                                <div class="text-gray-600">Aircraft</div>
+                                                <div class="font-mono">${agent2.flightData.aircraftName || 'null'}</div>
+                                                <div class="text-xs text-gray-500">Confidence: ${((agent2.flightData.aircraftNameConfidence || 0) * 100).toFixed(0)}%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-white rounded p-3 mb-3">
+                                        <h4 class="font-semibold mb-2">Validation Notes:</h4>
+                                        <div class="text-sm text-gray-700">${agent2.flightData.validationNotes || 'No notes provided'}</div>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+
+                resultsDiv.innerHTML = html;
+            }
+
+            // Cleanup on page unload
+            window.addEventListener('beforeunload', () => {
+                parser.cleanup();
+            });
+        });
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen py-8">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">LangChain + MCP Flight Parser Evaluation</h1>
+            <p class="text-gray-600 mb-4">
+                Testing the two-agent architecture: Agent 1 (LangChain + Mistral + MCP SearXNG) → Agent 2 (Mistral-small with Structured Output)
+            </p>
+
+            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+                <div class="flex">
+                    <div class="ml-3">
+                        <p class="text-sm text-blue-700">
+                            <strong>Architecture:</strong> Agent 1 uses LangChain's <code>createAgent()</code> with automatic MCP tool orchestration (no manual loop!). Agent 2 uses Mistral-small with JSON schema enforcement.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="status" class="text-sm text-gray-600 mb-4">Initializing...</div>
+
+            <!-- Test Queries -->
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold mb-3">Quick Test Queries:</h3>
+                <div id="testQueries" class="grid grid-cols-1 gap-2"></div>
+            </div>
+
+            <!-- Input Section -->
+            <div class="space-y-4 mb-6">
+                <div>
+                    <label for="flightText" class="block text-sm font-medium text-gray-700 mb-2">
+                        Enter flight query:
+                    </label>
+                    <textarea
+                        id="flightText"
+                        rows="3"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder="Example: Dublin Amsterdam on Aer Lingus 10 Nov 2025"
+                    ></textarea>
+                </div>
+
+                <button
+                    id="runButton"
+                    class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+                >
+                    Run LangChain Agent Pipeline
+                </button>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loading" class="hidden mb-6">
+                <div class="flex items-center space-x-2 text-blue-600">
+                    <svg class="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" class="opacity-25"></circle>
+                        <path fill="currentColor" class="opacity-75" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span>LangChain agent running...</span>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div id="results"></div>
+        </div>
+    </div>
+</body>
+</html>
