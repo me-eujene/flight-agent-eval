@@ -1,10 +1,31 @@
 version: '3.8'
 
 services:
+  # PostgreSQL database for LiteLLM
+  postgres:
+    image: postgres:16-alpine
+    container_name: litellm-postgres
+    networks:
+      - searxng-net
+    environment:
+      - POSTGRES_DB=litellm
+      - POSTGRES_USER=litellm
+      - POSTGRES_PASSWORD=litellm
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U litellm"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   # LiteLLM Proxy - Provides unified API for Mistral models
   litellm:
     image: ghcr.io/berriai/litellm:main-latest
-    container_name: litellm-proxy
+    container_name: litellm
+    networks:
+      - searxng-net
     ports:
       - "4000:4000"
     volumes:
@@ -12,6 +33,7 @@ services:
     environment:
       - MISTRAL_API_KEY=${MISTRAL_API_KEY}
       - LITELLM_MASTER_KEY=${LITELLM_MASTER_KEY:-sk-master-local-dev-key-12345}
+      - DATABASE_URL=postgresql://litellm:litellm@postgres:5432/litellm
       - PORT=4000
       - LITELLM_LOG=INFO
       - STORE_MODEL_IN_DB=False
@@ -23,6 +45,9 @@ services:
       - "--num_workers"
       - "1"
     restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:4000/health"]
       interval: 30s
@@ -37,19 +62,19 @@ services:
     command: valkey-server --save 30 1 --loglevel warning
     restart: unless-stopped
     networks:
-      - searxng
+      - searxng-net
     volumes:
       - redis-data:/data
 
-  # SearXNG - Privacy-respecting metasearch engine
+  # SearXNG search engine
   searxng:
     image: docker.io/searxng/searxng:latest
     container_name: searxng
     restart: unless-stopped
     networks:
-      - searxng
+      - searxng-net
     ports:
-      - "127.0.0.1:8080:8080"
+      - "8080:8080"
     volumes:
       - ./searxng-settings.yml:/etc/searxng/settings.yml:ro
     environment:
@@ -57,8 +82,25 @@ services:
     depends_on:
       - redis
 
+  # MCP SearXNG wrapper
+  mcp-searxng:
+    image: isokoliuk/mcp-searxng:latest
+    container_name: mcp-searxng
+    restart: unless-stopped
+    networks:
+      - searxng-net
+    ports:
+      - "3000:3000"
+    environment:
+      - SEARXNG_URL=http://searxng:8080
+      - MCP_HTTP_PORT=3000
+    depends_on:
+      - searxng
+
 networks:
-  searxng:
+  searxng-net:
+    driver: bridge
 
 volumes:
   redis-data:
+  postgres-data:

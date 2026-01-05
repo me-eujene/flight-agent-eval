@@ -1,9 +1,9 @@
-# SearXNG Configuration for Flight Agent Eval
 use_default_settings: true
 
 general:
-  debug: false
-  instance_name: "SearXNG for Flight Search"
+  debug: true
+  instance_name: "SearXNG"
+  public_instance: false
 
 search:
   safe_search: 0
@@ -12,33 +12,63 @@ search:
   formats:
     - html
     - json
+    - csv
+    - rss
 
 server:
-  secret_key: "changeme"  # Change this in production
+  secret_key: "changeme-random-secret-key-here"
   limiter: false
   image_proxy: false
+  method: "GET"
+  http_protocol_version: "1.1"
 
-redis:
+# Disable bot detection for local development
+botdetection:
+  ip_limit:
+    filter_link_local: false
+  ip_lists:
+    pass_ip:
+      - '0.0.0.0/0'
+      - '::/0'
+
+outgoing:
+  request_timeout: 3.0
+  useragent_suffix: ""
+
+valkey:
   url: redis://redis:6379/0
 
-ui:
-  static_use_hash: true
-  query_in_title: true
-
 engines:
+  # Disable all default engines first
   - name: google
-    engine: google
-    shortcut: go
+    disabled: true
 
   - name: duckduckgo
-    engine: duckduckgo
-    shortcut: ddg
+    disabled: true
+
+  - name: wikipedia
+    disabled: true
+
+  - name: currency
+    disabled: true
+
+  - name: qwant
+    disabled: true
+
+  # Enable ONLY Startpage and Bing
+  - name: startpage
+    engine: startpage
+    disabled: false
+    shortcut: sp
+    timeout: 5.0
 
   - name: bing
     engine: bing
+    disabled: false
     shortcut: bi
+    timeout: 5.0
 
 enabled_plugins:
   - 'Hash plugin'
-  - 'Search on category select'
+  - 'Self Information'
   - 'Tracker URL remover'
