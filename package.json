@@ -23,12 +23,12 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@langchain/core": "^1.1.8",
+    "@langchain/core": "^1.1.9",
     "@langchain/langgraph": "^1.0.7",
     "@langchain/mcp-adapters": "^1.1.1",
-    "@langchain/openai": "^0.3.0",
+    "@langchain/openai": "^1.2.1",
     "dotenv": "^16.4.0",
-    "langchain": "^0.3.0"
+    "langchain": "^1.2.4"
   },
   "engines": {
     "node": ">=18.0.0"

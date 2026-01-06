@@ -15,7 +15,7 @@
  */
 
 import { ChatOpenAI } from '@langchain/openai';
-import { createAgent } from 'langchain';
+import { createReactAgent } from '@langchain/langgraph/prebuilt';
 import { MultiServerMCPClient } from '@langchain/mcp-adapters';
 import fs from 'fs';
 import { config } from 'dotenv';
@@ -375,11 +375,8 @@ function compareResults(extracted, groundTruth) {
 }
 
 async function runBatchEvaluation() {
-    console.log('🚀 Flight Search Agent Evaluation\n');
-    console.log(`📊 Dataset: ${DATASET.length} test cases`);
-    console.log(`🔧 LiteLLM: ${LITELLM_URL}`);
-    console.log(`🔍 MCP: ${MCP_SEARXNG_URL}\n`);
-    console.log('═'.repeat(80));
+    console.log('🚀 Flight Search Agent Evaluation');
+    console.log(`📊 Testing ${DATASET.length} flights\n`);
 
     let mcpClient = null;
     let model = null;
@@ -387,16 +384,17 @@ async function runBatchEvaluation() {
 
     try {
         // Initialize MCP Client
-        console.log('📡 Initializing MCP client and model...');
+        console.log('Initializing...');
         mcpClient = new MultiServerMCPClient({
+            useStandardContentBlocks: true,
+            throwOnLoadError: true,
+            onConnectionError: 'ignore',
             mcpServers: {
                 searxng: { url: MCP_SEARXNG_URL }
             }
         });
 
         tools = await mcpClient.getTools();
-        console.log(`✓ Loaded ${tools.length} MCP tools`);
-
         model = new ChatOpenAI({
             model: 'mistral-large',
             configuration: {
@@ -405,7 +403,7 @@ async function runBatchEvaluation() {
             },
             temperature: 0
         });
-        console.log('✓ Model ready\n');
+        console.log('✓ Ready\n');
 
         const results = [];
         let totalDuration = 0;
@@ -415,24 +413,80 @@ async function runBatchEvaluation() {
             const testCase = DATASET[i];
             const query = generateQuery(testCase);
 
-            console.log(`\n[${i + 1}/${DATASET.length}] Testing: ${query}`);
-            console.log(`Expected: ${testCase.airlineCode}${testCase.flightNumber}, ${testCase.aircraft}, ${testCase.duration}`);
+            console.log(`[${i + 1}/${DATASET.length}] ${query}`);
 
             try {
                 const startTime = Date.now();
+                let traceMarkdown = ''; // Declare trace variable for first query
 
-                // Step 1: Agent 1 - Research
-                const agent1Prompt = getAgent1Prompt(query);
-                const agent = createAgent({
-                    model: model,
-                    tools: tools
+                // Step 1: Agent 1 - Research using ReAct pattern
+                const agent1PromptText = getAgent1Prompt(query);
+
+                // Create ReAct agent with MCP tools
+                const agent = createReactAgent({
+                    llm: model,
+                    tools: tools,
+                    messageModifier: agent1PromptText  // System prompt
                 });
 
+                // Invoke agent with user query
                 const agent1Result = await agent.invoke({
-                    messages: [{ role: 'user', content: agent1Prompt }]
+                    messages: [{ role: 'user', content: query }]
                 });
 
-                const researchReport = agent1Result.messages[agent1Result.messages.length - 1].content;
+                // Quick validation: Check if MCP tools were used
+                const toolCalls = agent1Result.messages.filter(m =>
+                    m.additional_kwargs?.tool_calls?.length > 0 ||
+                    m.tool_calls?.length > 0
+                );
+
+                if (toolCalls.length === 0) {
+                    console.log(`  ⚠️  No tools used - possible hallucination`);
+                }
+
+                // Extract final answer from message chain
+                const finalMessage = agent1Result.messages[agent1Result.messages.length - 1];
+                const researchReport = finalMessage.content;
+
+                // === SAVE FULL TRACE TO MARKDOWN ===
+                if (i === 0) { // Save trace for first query only
+                    traceMarkdown = `# Flight Agent Evaluation - Full Conversation Trace\n\n`;
+                    traceMarkdown += `## Query\n\n**Test Case:** ${query}\n\n`;
+                    traceMarkdown += `**Expected:**\n`;
+                    traceMarkdown += `- Flight: ${testCase.airlineCode}${testCase.flightNumber}\n`;
+                    traceMarkdown += `- Aircraft: ${testCase.aircraft}\n`;
+                    traceMarkdown += `- Duration: ${testCase.duration}\n\n`;
+                    traceMarkdown += `---\n\n`;
+
+                    // Agent 1 conversation trace
+                    traceMarkdown += `## Agent 1: Research Agent (LangChain + MCP)\n\n`;
+                    traceMarkdown += `**System Prompt:**\n\`\`\`\n${agent1PromptText}\n\`\`\`\n\n`;
+
+                    agent1Result.messages.forEach((msg, idx) => {
+                        traceMarkdown += `### Message ${idx + 1}: ${msg.role || msg._getType()}\n\n`;
+
+                        if (msg.role === 'user' || msg._getType() === 'human') {
+                            traceMarkdown += `**User Query:**\n\`\`\`\n${msg.content}\n\`\`\`\n\n`;
+                        } else if (msg.role === 'assistant' || msg._getType() === 'ai') {
+                            const toolCalls = msg.additional_kwargs?.tool_calls || msg.tool_calls || [];
+                            if (toolCalls.length > 0) {
+                                traceMarkdown += `**Assistant (Tool Calls):**\n\n`;
+                                toolCalls.forEach((call, i) => {
+                                    const toolName = call.function?.name || call.name;
+                                    const args = call.function?.arguments || call.args;
+                                    traceMarkdown += `**Tool Call ${i + 1}:** \`${toolName}\`\n\`\`\`json\n${typeof args === 'string' ? args : JSON.stringify(args, null, 2)}\n\`\`\`\n\n`;
+                                });
+                            } else {
+                                traceMarkdown += `**Assistant Response:**\n\`\`\`\n${msg.content}\n\`\`\`\n\n`;
+                            }
+                        } else if (msg.role === 'tool') {
+                            traceMarkdown += `**Tool Result:**\n\`\`\`\n${msg.content?.substring(0, 500)}...\n\`\`\`\n\n`;
+                        }
+                    });
+
+                    traceMarkdown += `\n**Agent 1 Final Report:**\n\`\`\`\n${researchReport}\n\`\`\`\n\n`;
+                    traceMarkdown += `---\n\n`;
+                }
 
                 // Step 2: Agent 2 - Validation
                 const agent2Prompt = getAgent2Prompt(query, researchReport);
@@ -463,91 +517,97 @@ async function runBatchEvaluation() {
                 const duration = ((Date.now() - startTime) / 1000).toFixed(2);
                 totalDuration += parseFloat(duration);
 
-                // Compare with ground truth
-                const matches = compareResults(flightData, testCase);
-                const allMatch = Object.values(matches).every(m => m);
+                // === CONTINUE TRACE: Agent 2 ===
+                if (i === 0) {
+                    traceMarkdown += `## Agent 2: Validation Agent (Direct API + JSON Schema)\n\n`;
+                    traceMarkdown += `**System Prompt:**\n\`\`\`\n${agent2Prompt.substring(0, 1000)}...\n\`\`\`\n\n`;
+                    traceMarkdown += `**Agent 2 Response:**\n\`\`\`json\n${JSON.stringify(flightData, null, 2)}\n\`\`\`\n\n`;
+                    traceMarkdown += `---\n\n`;
+                }
 
+                // Store results for manual comparison (no automatic matching)
                 results.push({
                     query,
                     groundTruth: testCase,
                     extracted: flightData,
-                    matches,
-                    allMatch,
                     duration
                 });
 
-                const status = allMatch ? '✓' : '✗';
-                console.log(`${status} ${i + 1}/${DATASET.length} completed in ${duration}s`);
+                console.log(`✓ ${i + 1}/${DATASET.length} completed in ${duration}s`);
+
+                // === SAVE EVALUATION RESULTS TO TRACE ===
+                if (i === 0) {
+                    traceMarkdown += `## Extracted Data vs Ground Truth\n\n`;
+                    traceMarkdown += `**Duration:** ${duration}s\n\n`;
+
+                    traceMarkdown += `| Field | Extracted | Confidence | Ground Truth |\n`;
+                    traceMarkdown += `|-------|-----------|------------|-------------|\n`;
+                    traceMarkdown += `| Flight Number | ${flightData.flightNumber || 'N/A'} | ${flightData.flightNumberConfidence} | ${testCase.flightNumber} |\n`;
+                    traceMarkdown += `| Airline Code | ${flightData.airlineCode || 'N/A'} | ${flightData.airlineCodeConfidence} | ${testCase.airlineCode} |\n`;
+                    traceMarkdown += `| Departure | ${flightData.departureAirportCode || 'N/A'} | ${flightData.departureAirportConfidence} | ${testCase.originCode} |\n`;
+                    traceMarkdown += `| Arrival | ${flightData.arrivalAirportCode || 'N/A'} | ${flightData.arrivalAirportConfidence} | ${testCase.destinationCode} |\n`;
+                    traceMarkdown += `| Date | ${flightData.flightDate || 'N/A'} | ${flightData.flightDateConfidence} | ${testCase.date} |\n`;
+                    traceMarkdown += `| Aircraft | ${flightData.aircraftName || 'N/A'} | ${flightData.aircraftNameConfidence} | ${testCase.aircraft} |\n`;
+                    traceMarkdown += `| Flight Time | ${flightData.flightTime || 'N/A'} | ${flightData.flightTimeConfidence} | ${testCase.duration} |\n\n`;
+
+                    traceMarkdown += `**Validation Notes:**\n${flightData.validationNotes}\n`;
+
+                    // Save to file
+                    const traceFile = `./trace-${Date.now()}.md`;
+                    fs.writeFileSync(traceFile, traceMarkdown);
+                }
 
             } catch (error) {
-                console.error(`✗ Error: ${error.message}`);
+                console.error(`✗ ${i + 1}/${DATASET.length} Error: ${error.message}`);
                 results.push({
                     query,
                     groundTruth: testCase,
-                    error: error.message,
-                    allMatch: false
+                    error: error.message
                 });
             }
         }
 
-        // Summary
-        console.log('\n\n' + '═'.repeat(80));
-        console.log('📊 BATCH EVALUATION RESULTS');
-        console.log('═'.repeat(80));
+        // Generate CSV for manual comparison
+        console.log(`\n✓ Completed ${results.length} tests in ${totalDuration.toFixed(1)}s (avg ${(totalDuration / results.length).toFixed(1)}s/test)`);
 
-        const successCount = results.filter(r => r.allMatch).length;
-        const successRate = ((successCount / results.length) * 100).toFixed(1);
-
-        const fieldAccuracy = {
-            flightNumber: 0,
-            airlineCode: 0,
-            departureAirport: 0,
-            arrivalAirport: 0,
-            flightDate: 0,
-            aircraftName: 0,
-            flightTime: 0
-        };
+        // Create CSV output
+        const csvLines = [];
+        csvLines.push([
+            'Query',
+            'GT_FlightNum', 'GT_Airline', 'GT_Departure', 'GT_Arrival', 'GT_Date', 'GT_Aircraft', 'GT_Duration',
+            'EXT_FlightNum', 'EXT_Airline', 'EXT_Departure', 'EXT_Arrival', 'EXT_Date', 'EXT_Aircraft', 'EXT_Duration',
+            'CONF_FlightNum', 'CONF_Airline', 'CONF_Departure', 'CONF_Arrival', 'CONF_Date', 'CONF_Aircraft', 'CONF_Duration',
+            'Duration_Sec', 'Validation_Notes'
+        ].join(','));
 
         results.forEach(r => {
-            if (r.matches) {
-                Object.keys(fieldAccuracy).forEach(field => {
-                    if (r.matches[field]) fieldAccuracy[field]++;
-                });
+            if (r.error) {
+                csvLines.push([
+                    `"${r.query}"`,
+                    '', '', '', '', '', '', '',
+                    '', '', '', '', '', '', '',
+                    '', '', '', '', '', '', '',
+                    '', `"ERROR: ${r.error}"`
+                ].join(','));
+            } else {
+                const gt = r.groundTruth;
+                const ext = r.extracted;
+                csvLines.push([
+                    `"${r.query}"`,
+                    gt.flightNumber, gt.airlineCode, gt.originCode, gt.destinationCode, gt.date, `"${gt.aircraft}"`, gt.duration,
+                    ext.flightNumber || '', ext.airlineCode || '', ext.departureAirportCode || '', ext.arrivalAirportCode || '', ext.flightDate || '', `"${ext.aircraftName || ''}"`, ext.flightTime || '',
+                    ext.flightNumberConfidence || 0, ext.airlineCodeConfidence || 0, ext.departureAirportConfidence || 0, ext.arrivalAirportConfidence || 0, ext.flightDateConfidence || 0, ext.aircraftNameConfidence || 0, ext.flightTimeConfidence || 0,
+                    r.duration, `"${ext.validationNotes || ''}"`
+                ].join(','));
             }
         });
 
-        console.log(`\nOverall Success Rate: ${successRate}% (${successCount}/${results.length})`);
-        console.log(`Average Duration: ${(totalDuration / results.length).toFixed(2)}s per test`);
-        console.log(`Total Duration: ${totalDuration.toFixed(2)}s`);
-
-        console.log('\nField-by-Field Accuracy:');
-        Object.entries(fieldAccuracy).forEach(([field, count]) => {
-            const pct = ((count / results.length) * 100).toFixed(1);
-            console.log(`  ${field.padEnd(20)}: ${pct}% (${count}/${results.length})`);
-        });
-
-        // Show failed flights
-        const failedFlights = results.filter(r => !r.allMatch);
-        if (failedFlights.length > 0) {
-            console.log(`\nFailed Flights (${failedFlights.length}):`);
-            failedFlights.forEach(f => {
-                if (f.error) {
-                    console.log(`  ${f.query} - ERROR: ${f.error}`);
-                } else {
-                    const failedFields = Object.entries(f.matches || {})
-                        .filter(([_, match]) => !match)
-                        .map(([field]) => field)
-                        .join(', ');
-                    console.log(`  ${f.query} - Failed fields: ${failedFields}`);
-                }
-            });
-        }
-
-        console.log('\n' + '═'.repeat(80));
+        const csvFile = `./eval-results-${Date.now()}.csv`;
+        fs.writeFileSync(csvFile, csvLines.join('\n'));
+        console.log(`💾 ${csvFile}\n`);
 
     } catch (error) {
-        console.error('\n❌ Fatal Error:', error.message);
-        console.error(error.stack);
+        console.error(`\n❌ Fatal: ${error.message}`);
         process.exit(1);
     } finally {
         if (mcpClient) {
