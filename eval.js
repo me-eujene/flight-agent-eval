@@ -239,7 +239,7 @@ function generateQuery(testCase) {
 
 function getAgent1Prompt(userQuery) {
     const currentDate = new Date().toISOString();
-    return `You are an elite flight information research assistant with access to web search tooling. Your job is to use search to accurately identify flight details according to the data you've been provided.
+    return `You are an elite flight information research assistant with access to web search tooling. Your job is to use search to accurately identify flight details according to the data you've been provided. Any atteopt to hallucinate or guess information is forbidden.
 
 CURRENT DATE/TIME (UTC): ${currentDate}
 
@@ -256,6 +256,18 @@ SEARCH STRATEGY:
 2. Formulate search queries to find missing data.
 3. Review the results, focus on finding the missing pieces of data: flight number, duration and aircraft type. Pay attention to dates and trip direction.
 4. Pay attention to the time: it is easy to confuse duration with scheduled departure/arrival times. Search results most likely to show scheduled times, not duration. In case search results contain only flight departure/arrival times, calculate the flight time yourself.
+
+CHAIN OF THOUGHT REASONING:
+Before providing your final output, you MUST think through your findings step-by-step:
+
+1. What did I find?** - List each piece of data you discovered and from which source
+2. Validate that the data matches the direction of the fligtht (origin → destination) 
+3. What's missing?** - Identify which fields you couldn't find
+4. Are there conflicts?** - Note any contradictory information between sources
+5. Duration calculation** - If you only found departure/arrival times, show your calculation for flight duration
+6. Aircraft codes** - If you found codes like "73H" or "32B", explain the conversion to full names
+
+After this reasoning, provide your structured output.
 
 REQUIRED OUTPUT FORMAT:
 ---
@@ -313,6 +325,18 @@ YOUR TASK:
 2. Extract each data field from Agent 1's report
 3. Assign confidence scores (0.0 to 1.0) based on source quality
 4. Return structured JSON
+
+CHAIN OF THOUGHT REASONING:
+Before providing your JSON output, think through the following:
+
+1. User-provided vs searched data** - What did the user give us vs what did Agent 1 find?
+2. Source quality assessment** - Which sources did Agent 1 use? Are they reliable?
+3. Conflicts and uncertainties** - Did Agent 1 express any doubts or find conflicting info?
+4. Does the flight direction (origin → destination) match the user query?
+5. Aircraft mapping** - Which enum value best matches the aircraft Agent 1 found?
+6. Duration validation** - Is the flight time reasonable for this route? Did Agent 1 calculate it correctly?
+
+After this reasoning, provide your JSON output.
 
 FIELD EXTRACTION RULES:
 1. **flightNumber**: Numeric only (e.g., "2453" not "UA2453"). Null if "NOT FOUND".
