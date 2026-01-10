@@ -290,7 +290,27 @@ FLIGHT TIME: [HH:MM in 24-hour format, or "NOT FOUND". This is SCHEDULED OR ACTU
 Time Source: [Website name]
 Time Notes: [Brief notes]
 
-AIRCRAFT TYPE: [Full aircraft name. Examples: "Airbus A321", "Boeing 737-800", "Embraer E190". If you find codes like "32B", "73H", "E90", convert them to full names. Write "NOT FOUND" only if no aircraft information exists.]
+AIRCRAFT TYPE: [Full aircraft name using the mapping below. If you find an ICAO code, convert it using this table. Write "NOT FOUND" only if no aircraft information exists.]
+
+AIRCRAFT ICAO CODE MAPPING:
+- B738, B739, B73J, B737 → Boeing 737NG
+- B38M → Boeing 737MAX
+- A320, A20N → Airbus A320
+- A321, A21N → Airbus A321
+- A319, A19N → Airbus A319
+- A333, A332, A339 → Airbus A330
+- A359, A35K → Airbus A350
+- A388 → Airbus A380
+- B78X, B788, B789 → Boeing 787
+- B77W, B77L, B772, B773 → Boeing 777
+- B744, B748 → Boeing 747
+- E75L, E75S → Embraer E175-E2
+- E170 → Embraer E170
+- E190, E290 → Embraer E190
+- E195, E295 → Embraer E195-E2
+- CRJ9, CRJ7, CRJ2 → Bombardier CRJ
+- DH8D → DHC Dash 8
+- AT76, AT72 → ATR 42/72
 Aircraft Source: [Website name]
 Aircraft Notes: [If you converted a code to full name, mention the original code]
 
