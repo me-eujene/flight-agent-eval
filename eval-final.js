@@ -101,6 +101,18 @@ SEARCH STRATEGY:
 3. Review the results, focus on finding: flight number, duration and aircraft type. Pay attention to dates and trip direction.
 4. Pay attention to the time: it is easy to confuse duration with scheduled departure/arrival times. Search results most likely to show scheduled times, not duration. In case search results contain only flight departure/arrival times, calculate the flight time yourself.
 
+CHAIN OF THOUGHT REASONING:
+Before providing your final output, you MUST think through your findings step-by-step:
+
+1. What did I find?** - List each piece of data you discovered and from which source
+2. Validate that the data matches the direction of the fligtht (origin → destination)
+3. What's missing?** - Identify which fields you couldn't find
+4. Are there conflicts?** - Note any contradictory information between sources
+5. Duration calculation** - If you only found departure/arrival times, show your calculation for flight duration
+6. Aircraft codes** - If you found codes like "73H" or "32B", explain the conversion to full names
+
+After this reasoning, provide your structured output.
+
 REQUIRED OUTPUT FORMAT:
 ---
 FLIGHT NUMBER: [flight number found, or "NOT FOUND"]
