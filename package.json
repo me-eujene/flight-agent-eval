@@ -9,7 +9,8 @@
     "test": "node eval.js 3",
     "eval:quick": "node eval.js 5",
     "eval:standard": "node eval.js 10",
-    "eval:full": "node eval.js 20"
+    "eval:full": "node eval.js 20",
+    "eval:langchain": "node eval-langchain-gemini-only.js"
   },
   "keywords": [
     "flight",

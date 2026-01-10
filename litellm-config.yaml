@@ -9,6 +9,12 @@ model_list:
       model: mistral/mistral-small-latest
       api_key: os.environ/MISTRAL_API_KEY
 
+  - model_name: gemini-search
+    litellm_params:
+      model: openai/gemini-search
+      api_base: https://gen.pollinations.ai
+      api_key: sk_szglh5aFfm2I1aiXvZEoXYvKDDGVOOl1
+
 litellm_settings:
   drop_params: true
   set_verbose: false
