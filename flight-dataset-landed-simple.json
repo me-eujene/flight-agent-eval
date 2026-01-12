@@ -1,0 +1,605 @@
+[
+  {
+    "flight_number": "548",
+    "dep_iata": "LAS",
+    "arr_iata": "ABQ",
+    "airline_iata": "WN",
+    "aircraft_icao": "B738",
+    "duration": "02:20",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "46",
+    "dep_iata": "DUB",
+    "arr_iata": "AUH",
+    "airline_iata": "EY",
+    "aircraft_icao": "B77W",
+    "duration": "07:25",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "1538",
+    "dep_iata": "GRU",
+    "arr_iata": "AJU",
+    "airline_iata": "G3",
+    "aircraft_icao": "B738",
+    "duration": "02:40",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "898",
+    "dep_iata": "KUL",
+    "arr_iata": "FOC",
+    "airline_iata": "MF",
+    "aircraft_icao": "B738",
+    "duration": "04:35",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "1533",
+    "dep_iata": "JFK",
+    "arr_iata": "CTG",
+    "airline_iata": "B6",
+    "aircraft_icao": "A320",
+    "duration": "05:10",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "8765",
+    "dep_iata": "ZRH",
+    "arr_iata": "BER",
+    "airline_iata": "EW",
+    "aircraft_icao": "A320",
+    "duration": "01:40",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "3819",
+    "dep_iata": "CAN",
+    "arr_iata": "HGH",
+    "airline_iata": "CZ",
+    "aircraft_icao": "A20N",
+    "duration": "02:05",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "977",
+    "dep_iata": "PEK",
+    "arr_iata": "CGK",
+    "airline_iata": "CA",
+    "aircraft_icao": "A333",
+    "duration": "07:50",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "4118",
+    "dep_iata": "PEK",
+    "arr_iata": "CTU",
+    "airline_iata": "CA",
+    "aircraft_icao": "A21N",
+    "duration": "02:50",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "8856",
+    "dep_iata": "CAN",
+    "arr_iata": "SHA",
+    "airline_iata": "9C",
+    "aircraft_icao": "A321",
+    "duration": "02:05",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "4",
+    "dep_iata": "KUL",
+    "arr_iata": "LHR",
+    "airline_iata": "MH",
+    "aircraft_icao": "A359",
+    "duration": "14:10",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "146",
+    "dep_iata": "NRT",
+    "arr_iata": "HGH",
+    "airline_iata": "CA",
+    "aircraft_icao": "A321",
+    "duration": "04:10",
+    "scheduled_flight_date": "10.01.2026"
+  },
+  {
+    "flight_number": "955",
+    "dep_iata": "MXP",
+    "arr_iata": "CMN",
+    "airline_iata": "AT",
+    "aircraft_icao": "B738",
+    "duration": "03:05",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "72",
+    "dep_iata": "BOG",
+    "arr_iata": "MEX",
+    "airline_iata": "AV",
+    "aircraft_icao": "A20N",
+    "duration": "04:50",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "215",
+    "dep_iata": "KUL",
+    "arr_iata": "BOM",
+    "airline_iata": "OD",
+    "aircraft_icao": "B738",
+    "duration": "05:00",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "2606",
+    "dep_iata": "KUL",
+    "arr_iata": "BKI",
+    "airline_iata": "MH",
+    "aircraft_icao": "B738",
+    "duration": "02:40",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "1615",
+    "dep_iata": "AMS",
+    "arr_iata": "LIN",
+    "airline_iata": "KL",
+    "aircraft_icao": "B738",
+    "duration": "01:40",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "1964",
+    "dep_iata": "DUB",
+    "arr_iata": "EIN",
+    "airline_iata": "FR",
+    "aircraft_icao": "B738",
+    "duration": "01:40",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "2207",
+    "dep_iata": "DEL",
+    "arr_iata": "SXR",
+    "airline_iata": "6E",
+    "aircraft_icao": "A21N",
+    "duration": "01:25",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "3540",
+    "dep_iata": "CPH",
+    "arr_iata": "AMS",
+    "airline_iata": "D8",
+    "aircraft_icao": "B38M",
+    "duration": "01:30",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "987",
+    "dep_iata": "ATL",
+    "arr_iata": "BOS",
+    "airline_iata": "DL",
+    "aircraft_icao": "A321",
+    "duration": "02:37",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "611",
+    "dep_iata": "KIX",
+    "arr_iata": "DMK",
+    "airline_iata": "XJ",
+    "aircraft_icao": "A333",
+    "duration": "06:30",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "5043",
+    "dep_iata": "ORD",
+    "arr_iata": "MCW",
+    "airline_iata": "OO",
+    "aircraft_icao": "CRJ2",
+    "duration": "01:44",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "3069",
+    "dep_iata": "ATL",
+    "arr_iata": "BNA",
+    "airline_iata": "DL",
+    "aircraft_icao": "B712",
+    "duration": "01:12",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "188",
+    "dep_iata": "MAD",
+    "arr_iata": "EDI",
+    "airline_iata": "FR",
+    "aircraft_icao": "B738",
+    "duration": "02:55",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "571",
+    "dep_iata": "FRA",
+    "arr_iata": "LIS",
+    "airline_iata": "TP",
+    "aircraft_icao": "A21N",
+    "duration": "03:15",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "439",
+    "dep_iata": "DFW",
+    "arr_iata": "LAX",
+    "airline_iata": "DL",
+    "aircraft_icao": "A319",
+    "duration": "03:36",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "2303",
+    "dep_iata": "ICN",
+    "arr_iata": "CXR",
+    "airline_iata": "7C",
+    "aircraft_icao": "B738",
+    "duration": "05:20",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "1794",
+    "dep_iata": "YYZ",
+    "arr_iata": "PUJ",
+    "airline_iata": "RV",
+    "aircraft_icao": "A320",
+    "duration": "04:35",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "414",
+    "dep_iata": "BCN",
+    "arr_iata": "MAD",
+    "airline_iata": "IB",
+    "aircraft_icao": "A320",
+    "duration": "01:25",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "844",
+    "dep_iata": "BKK",
+    "arr_iata": "AMS",
+    "airline_iata": "KL",
+    "aircraft_icao": "B77W",
+    "duration": "12:30",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "516",
+    "dep_iata": "SIN",
+    "arr_iata": "CCU",
+    "airline_iata": "SQ",
+    "aircraft_icao": "A359",
+    "duration": "04:15",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "653",
+    "dep_iata": "ICN",
+    "arr_iata": "BKK",
+    "airline_iata": "KE",
+    "aircraft_icao": "B78X",
+    "duration": "06:15",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "2992",
+    "dep_iata": "ORD",
+    "arr_iata": "RSW",
+    "airline_iata": "AA",
+    "aircraft_icao": "B738",
+    "duration": "01:50",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "1824",
+    "dep_iata": "CDG",
+    "arr_iata": "IST",
+    "airline_iata": "TK",
+    "aircraft_icao": "A333",
+    "duration": "03:35",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "1032",
+    "dep_iata": "YYZ",
+    "arr_iata": "MCO",
+    "airline_iata": "WS",
+    "aircraft_icao": "B38M",
+    "duration": "03:09",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "716",
+    "dep_iata": "LHR",
+    "arr_iata": "ZRH",
+    "airline_iata": "BA",
+    "aircraft_icao": "A320",
+    "duration": "01:45",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "1763",
+    "dep_iata": "HEL",
+    "arr_iata": "FCO",
+    "airline_iata": "AY",
+    "aircraft_icao": "A320",
+    "duration": "03:30",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "4177",
+    "dep_iata": "ORD",
+    "arr_iata": "MSY",
+    "airline_iata": "MQ",
+    "aircraft_icao": "E170",
+    "duration": "02:39",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "1886",
+    "dep_iata": "VIE",
+    "arr_iata": "IST",
+    "airline_iata": "TK",
+    "aircraft_icao": "A321",
+    "duration": "02:25",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "14",
+    "dep_iata": "MNL",
+    "arr_iata": "DXB",
+    "airline_iata": "5J",
+    "aircraft_icao": "A339",
+    "duration": "10:10",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "860",
+    "dep_iata": "TPE",
+    "arr_iata": "HND",
+    "airline_iata": "MM",
+    "aircraft_icao": "A20N",
+    "duration": "02:55",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "32",
+    "dep_iata": "AUH",
+    "arr_iata": "AMM",
+    "airline_iata": "3L",
+    "aircraft_icao": "A320",
+    "duration": "03:30",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "93",
+    "dep_iata": "MEL",
+    "arr_iata": "LAX",
+    "airline_iata": "QF",
+    "aircraft_icao": "A388",
+    "duration": "14:25",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "8958",
+    "dep_iata": "ORD",
+    "arr_iata": "YUL",
+    "airline_iata": "AC",
+    "aircraft_icao": "CRJ9",
+    "duration": "02:05",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "1768",
+    "dep_iata": "MUC",
+    "arr_iata": "LCA",
+    "airline_iata": "LH",
+    "aircraft_icao": "A21N",
+    "duration": "03:25",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "792",
+    "dep_iata": "VIE",
+    "arr_iata": "MAD",
+    "airline_iata": "IB",
+    "aircraft_icao": "A320",
+    "duration": "03:10",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "2107",
+    "dep_iata": "ICN",
+    "arr_iata": "CRK",
+    "airline_iata": "7C",
+    "aircraft_icao": "B738",
+    "duration": "04:05",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "1021",
+    "dep_iata": "LAX",
+    "arr_iata": "ORD",
+    "airline_iata": "AA",
+    "aircraft_icao": "B738",
+    "duration": "04:07",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "3438",
+    "dep_iata": "GRU",
+    "arr_iata": "NAT",
+    "airline_iata": "JJ",
+    "aircraft_icao": "A321",
+    "duration": "03:20",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "8",
+    "dep_iata": "BNE",
+    "arr_iata": "DFW",
+    "airline_iata": "AA",
+    "aircraft_icao": "B789",
+    "duration": "14:55",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "1454",
+    "dep_iata": "LIS",
+    "arr_iata": "RAK",
+    "airline_iata": "TP",
+    "aircraft_icao": "A320",
+    "duration": "01:50",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "1047",
+    "dep_iata": "MAD",
+    "arr_iata": "FCO",
+    "airline_iata": "UX",
+    "aircraft_icao": "B738",
+    "duration": "02:25",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "695",
+    "dep_iata": "HKG",
+    "arr_iata": "DEL",
+    "airline_iata": "CX",
+    "aircraft_icao": "A359",
+    "duration": "06:25",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "943",
+    "dep_iata": "SEA",
+    "arr_iata": "MSP",
+    "airline_iata": "DL",
+    "aircraft_icao": "B739",
+    "duration": "03:24",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "8048",
+    "dep_iata": "SIN",
+    "arr_iata": "SZX",
+    "airline_iata": "CZ",
+    "aircraft_icao": "A21N",
+    "duration": "04:30",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "117",
+    "dep_iata": "LHR",
+    "arr_iata": "JFK",
+    "airline_iata": "BA",
+    "aircraft_icao": "B772",
+    "duration": "08:00",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "4722",
+    "dep_iata": "GRU",
+    "arr_iata": "SSA",
+    "airline_iata": "JJ",
+    "aircraft_icao": "A21N",
+    "duration": "02:20",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "712",
+    "dep_iata": "MEX",
+    "arr_iata": "LAX",
+    "airline_iata": "Y4",
+    "aircraft_icao": "A20N",
+    "duration": "04:05",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "196",
+    "dep_iata": "DEL",
+    "arr_iata": "CMB",
+    "airline_iata": "UL",
+    "aircraft_icao": "A320",
+    "duration": "03:35",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "1278",
+    "dep_iata": "SGN",
+    "arr_iata": "THD",
+    "airline_iata": "VN",
+    "aircraft_icao": "A321",
+    "duration": "01:55",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "63",
+    "dep_iata": "DXB",
+    "arr_iata": "KWI",
+    "airline_iata": "FZ",
+    "aircraft_icao": "B738",
+    "duration": "01:55",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "4635",
+    "dep_iata": "MAD",
+    "arr_iata": "ORY",
+    "airline_iata": "TO",
+    "aircraft_icao": "B738",
+    "duration": "02:05",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "2011",
+    "dep_iata": "ICN",
+    "arr_iata": "HKG",
+    "airline_iata": "KE",
+    "aircraft_icao": "B77W",
+    "duration": "04:10",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "2420",
+    "dep_iata": "SFO",
+    "arr_iata": "DEN",
+    "airline_iata": "UA",
+    "aircraft_icao": "B753",
+    "duration": "02:39",
+    "scheduled_flight_date": "11.01.2026"
+  },
+  {
+    "flight_number": "300",
+    "dep_iata": "MUC",
+    "arr_iata": "HKG",
+    "airline_iata": "CX",
+    "aircraft_icao": "A359",
+    "duration": "11:00",
+    "scheduled_flight_date": "10.01.2026"
+  },
+  {
+    "flight_number": "5219",
+    "dep_iata": "PVG",
+    "arr_iata": "TYN",
+    "airline_iata": "MU",
+    "aircraft_icao": "B738",
+    "duration": "02:35",
+    "scheduled_flight_date": "11.01.2026"
+  }
+]

@@ -1,0 +1,12 @@
+<View>
+    <Header value="Table with {key: value} pairs"/>
+    <Table name="table" value="$item"/>
+    <Choices name="choice" toName="table" choice="multiple">
+        <Choice value="Direction correct"/>
+        <Choice value="Airline correct"/>
+        <Choice value="Flight number correct"/>
+        <Choice value="Date correct"/>
+        <Choice value="Time correct"/>
+        <Choice value="ACFT correct"/>
+    </Choices>
+</View>
