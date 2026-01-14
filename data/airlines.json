@@ -1,0 +1,3910 @@
+[
+  {
+    "code": "0A",
+    "name": "Alphaland Aviation"
+  },
+  {
+    "code": "0B",
+    "name": "BBN Indonesia"
+  },
+  {
+    "code": "0C",
+    "name": "Cobra Aviation"
+  },
+  {
+    "code": "0D",
+    "name": "Darwin Airline"
+  },
+  {
+    "code": "0E",
+    "name": "North-West"
+  },
+  {
+    "code": "0F",
+    "name": "FlyALS"
+  },
+  {
+    "code": "0G",
+    "name": "Ghadames Air"
+  },
+  {
+    "code": "0H",
+    "name": "Uzbekistan Express"
+  },
+  {
+    "code": "0I",
+    "name": "Meraj Airlines"
+  },
+  {
+    "code": "0J",
+    "name": "Premium Jet"
+  },
+  {
+    "code": "0K",
+    "name": "Aircompany Kokshetau"
+  },
+  {
+    "code": "0L",
+    "name": "Lodyssey"
+  },
+  {
+    "code": "0M",
+    "name": "Premier Airlines"
+  },
+  {
+    "code": "0N",
+    "name": "North Star Air"
+  },
+  {
+    "code": "0O",
+    "name": "USA Jet Airlines"
+  },
+  {
+    "code": "0P",
+    "name": "Palau Asia Pacific"
+  },
+  {
+    "code": "0R",
+    "name": "Renegade Air"
+  },
+  {
+    "code": "0S",
+    "name": "Air Stork"
+  },
+  {
+    "code": "0T",
+    "name": "Total Linhas Aéreas"
+  },
+  {
+    "code": "0V",
+    "name": "Vasco"
+  },
+  {
+    "code": "0W",
+    "name": "West Caribbean"
+  },
+  {
+    "code": "0X",
+    "name": "Air Excel"
+  },
+  {
+    "code": "0Z",
+    "name": "Magnicharters"
+  },
+  {
+    "code": "2B",
+    "name": "Aerocondor"
+  },
+  {
+    "code": "2D",
+    "name": "Eastern Airlines"
+  },
+  {
+    "code": "2E",
+    "name": "ETF Airways"
+  },
+  {
+    "code": "2G",
+    "name": "Hungary Airlines"
+  },
+  {
+    "code": "2I",
+    "name": "21 Air"
+  },
+  {
+    "code": "2J",
+    "name": "Air Burkina"
+  },
+  {
+    "code": "2K",
+    "name": "Avianca Ecuador"
+  },
+  {
+    "code": "2L",
+    "name": "TAB"
+  },
+  {
+    "code": "2M",
+    "name": "Maya Island Air"
+  },
+  {
+    "code": "2N",
+    "name": "SmartLynx Malta"
+  },
+  {
+    "code": "2O",
+    "name": "Redemption Inc."
+  },
+  {
+    "code": "2P",
+    "name": "PAL Express"
+  },
+  {
+    "code": "2S",
+    "name": "Southwind Airlines"
+  },
+  {
+    "code": "2T",
+    "name": "BermudAir"
+  },
+  {
+    "code": "2U",
+    "name": "Fly Khiva"
+  },
+  {
+    "code": "2W",
+    "name": "world2fly"
+  },
+  {
+    "code": "2Y",
+    "name": "My Indo Airlines"
+  },
+  {
+    "code": "2Z",
+    "name": "Air Plus Comet"
+  },
+  {
+    "code": "3A",
+    "name": "Chu Kong Airways"
+  },
+  {
+    "code": "3C",
+    "name": "Air Chathams"
+  },
+  {
+    "code": "3D",
+    "name": "Dokasch GmBH"
+  },
+  {
+    "code": "3E",
+    "name": "Electra Airways"
+  },
+  {
+    "code": "3F",
+    "name": "FLYONE Armenia"
+  },
+  {
+    "code": "3H",
+    "name": "Air Inuit"
+  },
+  {
+    "code": "3K",
+    "name": "Jetstar Asia Airways"
+  },
+  {
+    "code": "3L",
+    "name": "Air Arabia Abu Dhabi"
+  },
+  {
+    "code": "3M",
+    "name": "Gulfstream Air"
+  },
+  {
+    "code": "3N",
+    "name": "Air Urga"
+  },
+  {
+    "code": "3O",
+    "name": "Air Arabia Maroc"
+  },
+  {
+    "code": "3P",
+    "name": "World2Fly Portugal"
+  },
+  {
+    "code": "3Q",
+    "name": "China Yunnan"
+  },
+  {
+    "code": "3R",
+    "name": "Divi Divi Air"
+  },
+  {
+    "code": "3T",
+    "name": "Tarco Aviation"
+  },
+  {
+    "code": "3U",
+    "name": "Sichuan Airlines"
+  },
+  {
+    "code": "3V",
+    "name": "ASL Airlines Belgium"
+  },
+  {
+    "code": "3W",
+    "name": "Malawi Airlines"
+  },
+  {
+    "code": "3X",
+    "name": "Premier Trans Aire"
+  },
+  {
+    "code": "3Z",
+    "name": "Smartwings Poland"
+  },
+  {
+    "code": "4A",
+    "name": "ATSA"
+  },
+  {
+    "code": "4B",
+    "name": "Aviastar-Tu"
+  },
+  {
+    "code": "4C",
+    "name": "LATAM Colombia"
+  },
+  {
+    "code": "4D",
+    "name": "Flyyo"
+  },
+  {
+    "code": "4E",
+    "name": "Stabo Air"
+  },
+  {
+    "code": "4F",
+    "name": "Freedom Airline"
+  },
+  {
+    "code": "4G",
+    "name": "Gazpromavia"
+  },
+  {
+    "code": "4H",
+    "name": "Air Congo"
+  },
+  {
+    "code": "4I",
+    "name": "Air Antilles"
+  },
+  {
+    "code": "4J",
+    "name": "Nationwide Airlines"
+  },
+  {
+    "code": "4K",
+    "name": "Freedom Airline"
+  },
+  {
+    "code": "4L",
+    "name": "Air Alma"
+  },
+  {
+    "code": "4M",
+    "name": "Mavi Gök"
+  },
+  {
+    "code": "4N",
+    "name": "Air North"
+  },
+  {
+    "code": "4O",
+    "name": "Air Montenegro"
+  },
+  {
+    "code": "4P",
+    "name": "REGIONAL Sky"
+  },
+  {
+    "code": "4Q",
+    "name": "Anderson Airlink"
+  },
+  {
+    "code": "4R",
+    "name": "Star East Airline"
+  },
+  {
+    "code": "4S",
+    "name": "Red Sea Airlines"
+  },
+  {
+    "code": "4T",
+    "name": "Rise Air"
+  },
+  {
+    "code": "4U",
+    "name": "XE Jet"
+  },
+  {
+    "code": "4V",
+    "name": "Vision Air"
+  },
+  {
+    "code": "4X",
+    "name": "Avion Express Malta"
+  },
+  {
+    "code": "4Y",
+    "name": "Airbus Transport"
+  },
+  {
+    "code": "4Z",
+    "name": "Airlink"
+  },
+  {
+    "code": "55",
+    "name": "Buta Airways"
+  },
+  {
+    "code": "5A",
+    "name": "LaneXang"
+  },
+  {
+    "code": "5C",
+    "name": "Challenge IL"
+  },
+  {
+    "code": "5D",
+    "name": "Aeroméxico Connect"
+  },
+  {
+    "code": "5E",
+    "name": "USAC Airways 695"
+  },
+  {
+    "code": "5F",
+    "name": "FlyOne"
+  },
+  {
+    "code": "5G",
+    "name": "Shirak Avia"
+  },
+  {
+    "code": "5H",
+    "name": "Five Fourty Aviation"
+  },
+  {
+    "code": "5J",
+    "name": "cebu pacific"
+  },
+  {
+    "code": "5K",
+    "name": "HiFly"
+  },
+  {
+    "code": "5M",
+    "name": "FlyMontserrat"
+  },
+  {
+    "code": "5N",
+    "name": "smartavia"
+  },
+  {
+    "code": "5O",
+    "name": "ASL Airlines France"
+  },
+  {
+    "code": "5P",
+    "name": "Panorama Airways"
+  },
+  {
+    "code": "5Q",
+    "name": "Holiday Europe"
+  },
+  {
+    "code": "5R",
+    "name": "Rutaca Airlines"
+  },
+  {
+    "code": "5T",
+    "name": "Canadian North"
+  },
+  {
+    "code": "5U",
+    "name": "TAG Airlines"
+  },
+  {
+    "code": "5W",
+    "name": "Wizz Air"
+  },
+  {
+    "code": "5Z",
+    "name": "Cemair"
+  },
+  {
+    "code": "6A",
+    "name": "Armenia Airways"
+  },
+  {
+    "code": "6B",
+    "name": "TUIfly Nordic"
+  },
+  {
+    "code": "6C",
+    "name": "CAE"
+  },
+  {
+    "code": "6D",
+    "name": "Smartwings Slovakia"
+  },
+  {
+    "code": "6E",
+    "name": "IndiGo"
+  },
+  {
+    "code": "6G",
+    "name": "Aeroregional"
+  },
+  {
+    "code": "6H",
+    "name": "Israir Airlines"
+  },
+  {
+    "code": "6I",
+    "name": "Alsie Express"
+  },
+  {
+    "code": "6J",
+    "name": "Solaseed Air"
+  },
+  {
+    "code": "6K",
+    "name": "Air Anka"
+  },
+  {
+    "code": "6M",
+    "name": "Maximus Airlines"
+  },
+  {
+    "code": "6R",
+    "name": "avianca cargo México"
+  },
+  {
+    "code": "6T",
+    "name": "Longtail Aviation"
+  },
+  {
+    "code": "6V",
+    "name": "Levu Air Cargo"
+  },
+  {
+    "code": "6W",
+    "name": "Warsaw Cargo"
+  },
+  {
+    "code": "6Y",
+    "name": "Smartlynx Airlines"
+  },
+  {
+    "code": "6Z",
+    "name": "Bosphorus Airways"
+  },
+  {
+    "code": "7A",
+    "name": "Express Air Cargo"
+  },
+  {
+    "code": "7B",
+    "name": "BBN Indonesia"
+  },
+  {
+    "code": "7C",
+    "name": "Coyne Airways"
+  },
+  {
+    "code": "7D",
+    "name": "Cardig Air"
+  },
+  {
+    "code": "7E",
+    "name": "Sylt Air"
+  },
+  {
+    "code": "7F",
+    "name": "Fanjet Express"
+  },
+  {
+    "code": "7G",
+    "name": "Star Flyer"
+  },
+  {
+    "code": "7H",
+    "name": "New Pacific Airlines"
+  },
+  {
+    "code": "7I",
+    "name": "Air Libya"
+  },
+  {
+    "code": "7J",
+    "name": "Tajik Air"
+  },
+  {
+    "code": "7L",
+    "name": "Silk Way West"
+  },
+  {
+    "code": "7M",
+    "name": "Map Linhas Aereas"
+  },
+  {
+    "code": "7O",
+    "name": "Smartwings Hungary"
+  },
+  {
+    "code": "7P",
+    "name": "Air Panama"
+  },
+  {
+    "code": "7Q",
+    "name": "FlyOne Asia"
+  },
+  {
+    "code": "7R",
+    "name": "RusLine / Air Volga"
+  },
+  {
+    "code": "7S",
+    "name": "Ryan Air"
+  },
+  {
+    "code": "7U",
+    "name": "Commercial Aviation"
+  },
+  {
+    "code": "7V",
+    "name": "Federal Airlines"
+  },
+  {
+    "code": "7W",
+    "name": "WINDROSE Airlines"
+  },
+  {
+    "code": "7Y",
+    "name": "Mann Yadanarpon"
+  },
+  {
+    "code": "7Z",
+    "name": "Ameristar Jet"
+  },
+  {
+    "code": "86",
+    "name": "Up Israel"
+  },
+  {
+    "code": "8A",
+    "name": "Panama Airways"
+  },
+  {
+    "code": "8B",
+    "name": "TransNusa"
+  },
+  {
+    "code": "8D",
+    "name": "FITS Aviation"
+  },
+  {
+    "code": "8E",
+    "name": "Easy Fly Express"
+  },
+  {
+    "code": "8F",
+    "name": "STP Airways"
+  },
+  {
+    "code": "8G",
+    "name": "AREO DILI"
+  },
+  {
+    "code": "8H",
+    "name": "BH Air"
+  },
+  {
+    "code": "8I",
+    "name": "Lipican Aer"
+  },
+  {
+    "code": "8J",
+    "name": "EcoJet"
+  },
+  {
+    "code": "8K",
+    "name": "Exploits Valley Air"
+  },
+  {
+    "code": "8L",
+    "name": "Lucky Air"
+  },
+  {
+    "code": "8M",
+    "name": "MAI"
+  },
+  {
+    "code": "8N",
+    "name": "Regional Air"
+  },
+  {
+    "code": "8P",
+    "name": "Pacific Coastal"
+  },
+  {
+    "code": "8Q",
+    "name": "Princess Air"
+  },
+  {
+    "code": "8R",
+    "name": "Amelia"
+  },
+  {
+    "code": "8S",
+    "name": "TurboJet"
+  },
+  {
+    "code": "8T",
+    "name": "Air Tindi"
+  },
+  {
+    "code": "8U",
+    "name": "Afriqiyah Airways"
+  },
+  {
+    "code": "8V",
+    "name": "Wright Air Service"
+  },
+  {
+    "code": "8W",
+    "name": "Fly AllWays"
+  },
+  {
+    "code": "9A",
+    "name": "Viazul"
+  },
+  {
+    "code": "9C",
+    "name": "Spring Airlines"
+  },
+  {
+    "code": "9E",
+    "name": "Endeavor Air"
+  },
+  {
+    "code": "9F",
+    "name": "Eurostar"
+  },
+  {
+    "code": "9G",
+    "name": "Sun PhuQuoc Airways"
+  },
+  {
+    "code": "9H",
+    "name": "Air Changan"
+  },
+  {
+    "code": "9I",
+    "name": "Alliance Air"
+  },
+  {
+    "code": "9J",
+    "name": "Pacific Island"
+  },
+  {
+    "code": "9K",
+    "name": "Cape Air"
+  },
+  {
+    "code": "9L",
+    "name": "AirTanker"
+  },
+  {
+    "code": "9M",
+    "name": "Central Mountain Air"
+  },
+  {
+    "code": "9N",
+    "name": "Tropic Air"
+  },
+  {
+    "code": "9P",
+    "name": "Fly Jinnah"
+  },
+  {
+    "code": "9Q",
+    "name": "Caicos Express"
+  },
+  {
+    "code": "9R",
+    "name": "SATENA"
+  },
+  {
+    "code": "9S",
+    "name": "Air Samarkand"
+  },
+  {
+    "code": "9T",
+    "name": "ACT Airlines"
+  },
+  {
+    "code": "9U",
+    "name": "Air Moldova"
+  },
+  {
+    "code": "9V",
+    "name": "Avior Airlines"
+  },
+  {
+    "code": "9W",
+    "name": "Northwinds Northern"
+  },
+  {
+    "code": "9X",
+    "name": "Southern Airways"
+  },
+  {
+    "code": "A2",
+    "name": "Animawings"
+  },
+  {
+    "code": "A3",
+    "name": "Aegean Airlines"
+  },
+  {
+    "code": "A4",
+    "name": "Aerosucre"
+  },
+  {
+    "code": "A5",
+    "name": "HOP!"
+  },
+  {
+    "code": "A6",
+    "name": "Air Travel"
+  },
+  {
+    "code": "A8",
+    "name": "Aerolink Uganda"
+  },
+  {
+    "code": "A9",
+    "name": "Georgian Airways"
+  },
+  {
+    "code": "AA",
+    "name": "American Airlines"
+  },
+  {
+    "code": "AC",
+    "name": "Air Canada"
+  },
+  {
+    "code": "AD",
+    "name": "Azul"
+  },
+  {
+    "code": "AE",
+    "name": "Mandarin Airlines"
+  },
+  {
+    "code": "AF",
+    "name": "Air France"
+  },
+  {
+    "code": "AG",
+    "name": "Aruba Airlines"
+  },
+  {
+    "code": "AH",
+    "name": "Air Algerie"
+  },
+  {
+    "code": "AI",
+    "name": "Air India"
+  },
+  {
+    "code": "AJ",
+    "name": "Aztec Airways"
+  },
+  {
+    "code": "AK",
+    "name": "Air Asia"
+  },
+  {
+    "code": "AL",
+    "name": "Alpavia"
+  },
+  {
+    "code": "AM",
+    "name": "Aeromexico"
+  },
+  {
+    "code": "AN",
+    "name": "Advanced Air"
+  },
+  {
+    "code": "AO",
+    "name": "Air Juan"
+  },
+  {
+    "code": "AP",
+    "name": "Alba Star.es"
+  },
+  {
+    "code": "AQ",
+    "name": "9Air"
+  },
+  {
+    "code": "AR",
+    "name": "Aerolineas"
+  },
+  {
+    "code": "AS",
+    "name": "AlphaSky"
+  },
+  {
+    "code": "AT",
+    "name": "Royal Air Maroc"
+  },
+  {
+    "code": "AU",
+    "name": "Austral"
+  },
+  {
+    "code": "AV",
+    "name": "Avianca"
+  },
+  {
+    "code": "AW",
+    "name": "Africa World"
+  },
+  {
+    "code": "AX",
+    "name": "AERgO International"
+  },
+  {
+    "code": "AY",
+    "name": "Finnair"
+  },
+  {
+    "code": "AZ",
+    "name": "ITA Airways"
+  },
+  {
+    "code": "B0",
+    "name": "La Compagnie"
+  },
+  {
+    "code": "B2",
+    "name": "Belavia"
+  },
+  {
+    "code": "B3",
+    "name": "Bhutan Airlines"
+  },
+  {
+    "code": "B4",
+    "name": "Beond"
+  },
+  {
+    "code": "B5",
+    "name": "BBN Airlines"
+  },
+  {
+    "code": "B6",
+    "name": "Jetblue Airways"
+  },
+  {
+    "code": "B7",
+    "name": "UNI Airways"
+  },
+  {
+    "code": "B8",
+    "name": "Italair"
+  },
+  {
+    "code": "B9",
+    "name": "Iran Airtour Airline"
+  },
+  {
+    "code": "BA",
+    "name": "British Airways"
+  },
+  {
+    "code": "BB",
+    "name": "Seaborne Airlines"
+  },
+  {
+    "code": "BC",
+    "name": "Skymark Airlines"
+  },
+  {
+    "code": "BE",
+    "name": "Brightline"
+  },
+  {
+    "code": "BF",
+    "name": "French bee"
+  },
+  {
+    "code": "BG",
+    "name": "Biman Bangladesh"
+  },
+  {
+    "code": "BH",
+    "name": "Transtate Airlines"
+  },
+  {
+    "code": "BI",
+    "name": "Royal Brunei"
+  },
+  {
+    "code": "BJ",
+    "name": "Nouvelair Tunisie"
+  },
+  {
+    "code": "BK",
+    "name": "Okay Airways"
+  },
+  {
+    "code": "BL",
+    "name": "Pacific Airlines"
+  },
+  {
+    "code": "BM",
+    "name": "Medsky Airways"
+  },
+  {
+    "code": "BN",
+    "name": "Luxwing"
+  },
+  {
+    "code": "BO",
+    "name": "Delta Air Regional"
+  },
+  {
+    "code": "BP",
+    "name": "Air Botswana"
+  },
+  {
+    "code": "BQ",
+    "name": "skyalps"
+  },
+  {
+    "code": "BR",
+    "name": "EVA Airways"
+  },
+  {
+    "code": "BS",
+    "name": "US-Bangla Airlines"
+  },
+  {
+    "code": "BT",
+    "name": "airBaltic"
+  },
+  {
+    "code": "BU",
+    "name": "CAA"
+  },
+  {
+    "code": "BV",
+    "name": "TOKi Air"
+  },
+  {
+    "code": "BW",
+    "name": "Caribbean Airlines"
+  },
+  {
+    "code": "BX",
+    "name": "Air Busan"
+  },
+  {
+    "code": "BY",
+    "name": "TUI Airways"
+  },
+  {
+    "code": "BZ",
+    "name": "Blue Dart Aviation"
+  },
+  {
+    "code": "C1",
+    "name": "Techtimes"
+  },
+  {
+    "code": "C2",
+    "name": "Ceiba"
+  },
+  {
+    "code": "C4",
+    "name": "Conquest Air Cargo"
+  },
+  {
+    "code": "C6",
+    "name": "Unilode"
+  },
+  {
+    "code": "C7",
+    "name": "Cinnamon Air"
+  },
+  {
+    "code": "CC",
+    "name": "Air Atlanta"
+  },
+  {
+    "code": "CD",
+    "name": "Corendon Dutch"
+  },
+  {
+    "code": "CE",
+    "name": "Club Jet Charter"
+  },
+  {
+    "code": "CG",
+    "name": "PNG Air"
+  },
+  {
+    "code": "CH",
+    "name": "Bemidji Aviation"
+  },
+  {
+    "code": "CI",
+    "name": "China Airlines"
+  },
+  {
+    "code": "CL",
+    "name": "Lufthansa CityLine"
+  },
+  {
+    "code": "CM",
+    "name": "Copa Airlines"
+  },
+  {
+    "code": "CN",
+    "name": "Grand China Air"
+  },
+  {
+    "code": "CO",
+    "name": "North-Western Cargo"
+  },
+  {
+    "code": "CP",
+    "name": "Aliscargo Airlines"
+  },
+  {
+    "code": "CQ",
+    "name": "Charterlines"
+  },
+  {
+    "code": "CR",
+    "name": "UBM Aviation - OAG"
+  },
+  {
+    "code": "CS",
+    "name": "chair"
+  },
+  {
+    "code": "CT",
+    "name": "Air Atlanta Europe"
+  },
+  {
+    "code": "CU",
+    "name": "Cubana"
+  },
+  {
+    "code": "CX",
+    "name": "Cathay Pacific"
+  },
+  {
+    "code": "CY",
+    "name": "Cyprus Airways"
+  },
+  {
+    "code": "D0",
+    "name": "DHL Air"
+  },
+  {
+    "code": "D2",
+    "name": "Severstal"
+  },
+  {
+    "code": "D3",
+    "name": "Daallo Airlines"
+  },
+  {
+    "code": "D4",
+    "name": "Geo Sky"
+  },
+  {
+    "code": "D5",
+    "name": "DHL Aero Expreso"
+  },
+  {
+    "code": "D6",
+    "name": "Sunrise Airways"
+  },
+  {
+    "code": "D8",
+    "name": "Norwegian Sweden"
+  },
+  {
+    "code": "D9",
+    "name": "Daallo Airlines"
+  },
+  {
+    "code": "DB",
+    "name": "Maleth-Aero"
+  },
+  {
+    "code": "DC",
+    "name": "Volo"
+  },
+  {
+    "code": "DD",
+    "name": "Nok Air"
+  },
+  {
+    "code": "DE",
+    "name": "Condor"
+  },
+  {
+    "code": "DF",
+    "name": "Condor"
+  },
+  {
+    "code": "DG",
+    "name": "Cebgo"
+  },
+  {
+    "code": "DH",
+    "name": "FlyAden"
+  },
+  {
+    "code": "DI",
+    "name": "Marabu"
+  },
+  {
+    "code": "DJ",
+    "name": "Maersk Air Cargo"
+  },
+  {
+    "code": "DK",
+    "name": "SunClass Airlines"
+  },
+  {
+    "code": "DL",
+    "name": "Delta Air Lines"
+  },
+  {
+    "code": "DM",
+    "name": "Arajet"
+  },
+  {
+    "code": "DN",
+    "name": "Dan Air"
+  },
+  {
+    "code": "DO",
+    "name": "SKYhigh Dominicana"
+  },
+  {
+    "code": "DP",
+    "name": "Pobeda"
+  },
+  {
+    "code": "DQ",
+    "name": "Alexandria Airlines"
+  },
+  {
+    "code": "DR",
+    "name": "Ruili Airlines"
+  },
+  {
+    "code": "DS",
+    "name": "DAS Nordisk"
+  },
+  {
+    "code": "DT",
+    "name": "TAAG Angola Airlines"
+  },
+  {
+    "code": "DU",
+    "name": "Sky Jet M.G."
+  },
+  {
+    "code": "DV",
+    "name": "Scat Air"
+  },
+  {
+    "code": "DW",
+    "name": "Shohin Airlines"
+  },
+  {
+    "code": "DX",
+    "name": "DAT"
+  },
+  {
+    "code": "DY",
+    "name": "Norwegian"
+  },
+  {
+    "code": "DZ",
+    "name": "Donghai Airlines"
+  },
+  {
+    "code": "E2",
+    "name": "airHaifa"
+  },
+  {
+    "code": "E4",
+    "name": "Abaete Aerotaxi"
+  },
+  {
+    "code": "E5",
+    "name": "Air Arabia Egypt"
+  },
+  {
+    "code": "E7",
+    "name": "Estafeta Carga Aerea"
+  },
+  {
+    "code": "E8",
+    "name": "Semeyavia"
+  },
+  {
+    "code": "E9",
+    "name": "iberojet"
+  },
+  {
+    "code": "EA",
+    "name": "Atlantis-Air Link"
+  },
+  {
+    "code": "EB",
+    "name": "Wamos Air"
+  },
+  {
+    "code": "ED",
+    "name": "AirExplore"
+  },
+  {
+    "code": "EE",
+    "name": "Executair Nigeria"
+  },
+  {
+    "code": "EF",
+    "name": "Aerolinea del Caribe"
+  },
+  {
+    "code": "EG",
+    "name": "Air Eagle"
+  },
+  {
+    "code": "EH",
+    "name": "ANA Wings"
+  },
+  {
+    "code": "EI",
+    "name": "Aer Lingus"
+  },
+  {
+    "code": "EJ",
+    "name": "European Cargo"
+  },
+  {
+    "code": "EK",
+    "name": "Emirates"
+  },
+  {
+    "code": "EL",
+    "name": "Euralair"
+  },
+  {
+    "code": "EM",
+    "name": "Empire Airlines"
+  },
+  {
+    "code": "EN",
+    "name": "Air Dolomiti"
+  },
+  {
+    "code": "EO",
+    "name": "Pegas Fly"
+  },
+  {
+    "code": "EP",
+    "name": "Iran Aseman Airline"
+  },
+  {
+    "code": "EQ",
+    "name": "TEA (UK)"
+  },
+  {
+    "code": "ER",
+    "name": "Don Everall Aviation"
+  },
+  {
+    "code": "ES",
+    "name": "DHL Aviation"
+  },
+  {
+    "code": "ET",
+    "name": "Ethiopian Airlines"
+  },
+  {
+    "code": "EU",
+    "name": "Chengdu Airlines"
+  },
+  {
+    "code": "EV",
+    "name": "Evergreen Air"
+  },
+  {
+    "code": "EW",
+    "name": "Eurowings"
+  },
+  {
+    "code": "EX",
+    "name": "Avianca Express"
+  },
+  {
+    "code": "EY",
+    "name": "Etihad"
+  },
+  {
+    "code": "EZ",
+    "name": "Sun Air"
+  },
+  {
+    "code": "F0",
+    "name": "Fly Jordan"
+  },
+  {
+    "code": "F2",
+    "name": "Safarilink Aviation"
+  },
+  {
+    "code": "F3",
+    "name": "flyadeal"
+  },
+  {
+    "code": "F4",
+    "name": "FLY 4"
+  },
+  {
+    "code": "F6",
+    "name": "Fly2Sky"
+  },
+  {
+    "code": "F7",
+    "name": "iFly Airlines"
+  },
+  {
+    "code": "F8",
+    "name": "Flair Airlines"
+  },
+  {
+    "code": "F9",
+    "name": "Frontier Airlines"
+  },
+  {
+    "code": "FA",
+    "name": "Safair"
+  },
+  {
+    "code": "FB",
+    "name": "Bulgaria Air"
+  },
+  {
+    "code": "FC",
+    "name": "LINK Airways"
+  },
+  {
+    "code": "FE",
+    "name": "flytrip"
+  },
+  {
+    "code": "FF",
+    "name": "Airshop"
+  },
+  {
+    "code": "FG",
+    "name": "Ariana Afghan"
+  },
+  {
+    "code": "FH",
+    "name": "Freebird Airlines"
+  },
+  {
+    "code": "FI",
+    "name": "Icelandair"
+  },
+  {
+    "code": "FJ",
+    "name": "Fiji Airways"
+  },
+  {
+    "code": "FL",
+    "name": "Florida Air Cargo"
+  },
+  {
+    "code": "FM",
+    "name": "Shanghai Airlines"
+  },
+  {
+    "code": "FN",
+    "name": "fastjet Zimbabwe"
+  },
+  {
+    "code": "FO",
+    "name": "Aero"
+  },
+  {
+    "code": "FP",
+    "name": "Fly Pro"
+  },
+  {
+    "code": "FQ",
+    "name": "Crown Airlines"
+  },
+  {
+    "code": "FR",
+    "name": "Ryanair"
+  },
+  {
+    "code": "FS",
+    "name": "Airfast Indonesia"
+  },
+  {
+    "code": "FT",
+    "name": "Flying Tiger"
+  },
+  {
+    "code": "FU",
+    "name": "Fuzhou Airlines"
+  },
+  {
+    "code": "FV",
+    "name": "Rossiya Airlines"
+  },
+  {
+    "code": "FW",
+    "name": "Ibex Airlines"
+  },
+  {
+    "code": "FY",
+    "name": "FlyFirefly"
+  },
+  {
+    "code": "FZ",
+    "name": "flydubai"
+  },
+  {
+    "code": "G2",
+    "name": "GullivAir"
+  },
+  {
+    "code": "G3",
+    "name": "GOL"
+  },
+  {
+    "code": "G4",
+    "name": "Allegiant Air"
+  },
+  {
+    "code": "G5",
+    "name": "China Express"
+  },
+  {
+    "code": "G6",
+    "name": "Global Crossing"
+  },
+  {
+    "code": "G7",
+    "name": "GoJet Airlines"
+  },
+  {
+    "code": "G8",
+    "name": "GUYANE Express Fly"
+  },
+  {
+    "code": "G9",
+    "name": "Air Arabia"
+  },
+  {
+    "code": "GA",
+    "name": "Garuda"
+  },
+  {
+    "code": "GB",
+    "name": "ABX Air"
+  },
+  {
+    "code": "GC",
+    "name": "Gelix Airlines"
+  },
+  {
+    "code": "GD",
+    "name": "Aviair"
+  },
+  {
+    "code": "GE",
+    "name": "Global Aviation"
+  },
+  {
+    "code": "GF",
+    "name": "Gulf Air"
+  },
+  {
+    "code": "GH",
+    "name": "Georgian Airlines"
+  },
+  {
+    "code": "GI",
+    "name": "Gridiron Air"
+  },
+  {
+    "code": "GJ",
+    "name": "Getjet Latvia"
+  },
+  {
+    "code": "GK",
+    "name": "Jetstar Japan"
+  },
+  {
+    "code": "GL",
+    "name": "Air Greenland"
+  },
+  {
+    "code": "GM",
+    "name": "Tri-MG Airlines"
+  },
+  {
+    "code": "GP",
+    "name": "APG Airlines"
+  },
+  {
+    "code": "GQ",
+    "name": "Sky Express"
+  },
+  {
+    "code": "GR",
+    "name": "Aurigny Air Services"
+  },
+  {
+    "code": "GS",
+    "name": "Tianjin Airlines"
+  },
+  {
+    "code": "GU",
+    "name": "AVIATECA"
+  },
+  {
+    "code": "GV",
+    "name": "Grant Aviation"
+  },
+  {
+    "code": "GW",
+    "name": "GetJet Airlines"
+  },
+  {
+    "code": "GY",
+    "name": "Colorful GuiZhou"
+  },
+  {
+    "code": "GZ",
+    "name": "Air Rarotonga"
+  },
+  {
+    "code": "H1",
+    "name": "Hahn Air Systems"
+  },
+  {
+    "code": "H2",
+    "name": "Sky Airline"
+  },
+  {
+    "code": "H5",
+    "name": "VistaJet"
+  },
+  {
+    "code": "H6",
+    "name": "European Air Charter"
+  },
+  {
+    "code": "H7",
+    "name": "HiSky"
+  },
+  {
+    "code": "H8",
+    "name": "Sky Airline Peru"
+  },
+  {
+    "code": "H9",
+    "name": "Himalaya Airlines"
+  },
+  {
+    "code": "HA",
+    "name": "Hawaiian Airlines"
+  },
+  {
+    "code": "HB",
+    "name": "Greater Bay Airlines"
+  },
+  {
+    "code": "HC",
+    "name": "One Air"
+  },
+  {
+    "code": "HD",
+    "name": "Alhaya Aviation"
+  },
+  {
+    "code": "HE",
+    "name": "Trans European"
+  },
+  {
+    "code": "HF",
+    "name": "Air Cote d Ivoire"
+  },
+  {
+    "code": "HG",
+    "name": "Hala Air"
+  },
+  {
+    "code": "HH",
+    "name": "Qanot Sharq"
+  },
+  {
+    "code": "HI",
+    "name": "Papillon Airways"
+  },
+  {
+    "code": "HJ",
+    "name": "Tasman Cargo"
+  },
+  {
+    "code": "HK",
+    "name": "Skippers Aviation"
+  },
+  {
+    "code": "HM",
+    "name": "Air Seychelles"
+  },
+  {
+    "code": "HN",
+    "name": "Heston Airlines"
+  },
+  {
+    "code": "HO",
+    "name": "Juneyao Airlines"
+  },
+  {
+    "code": "HP",
+    "name": "PopulAir"
+  },
+  {
+    "code": "HQ",
+    "name": "Compass Air Cargo"
+  },
+  {
+    "code": "HR",
+    "name": "Hahn Air Lines"
+  },
+  {
+    "code": "HS",
+    "name": "Heli Securite"
+  },
+  {
+    "code": "HU",
+    "name": "Hainan Airlines"
+  },
+  {
+    "code": "HV",
+    "name": "Transavia"
+  },
+  {
+    "code": "HW",
+    "name": "North-Wright Airways"
+  },
+  {
+    "code": "HX",
+    "name": "Hong Kong Airlines"
+  },
+  {
+    "code": "HY",
+    "name": "Uzbekistan Airways"
+  },
+  {
+    "code": "HZ",
+    "name": "Aurora Airlines"
+  },
+  {
+    "code": "I2",
+    "name": "Iberia Express"
+  },
+  {
+    "code": "I3",
+    "name": "innoAviation"
+  },
+  {
+    "code": "I4",
+    "name": "Island Air Express"
+  },
+  {
+    "code": "I5",
+    "name": "Air India Express"
+  },
+  {
+    "code": "I6",
+    "name": "Intermodalidad"
+  },
+  {
+    "code": "I8",
+    "name": "Izhavia"
+  },
+  {
+    "code": "I9",
+    "name": "Central Airlines"
+  },
+  {
+    "code": "IA",
+    "name": "Iraqi Airways"
+  },
+  {
+    "code": "IB",
+    "name": "Iberia"
+  },
+  {
+    "code": "ID",
+    "name": "Batik Air"
+  },
+  {
+    "code": "IE",
+    "name": "Solomon Airlines"
+  },
+  {
+    "code": "IF",
+    "name": "IFL Group"
+  },
+  {
+    "code": "IG",
+    "name": "GEA"
+  },
+  {
+    "code": "IH",
+    "name": "Southern Sky"
+  },
+  {
+    "code": "II",
+    "name": "IBC Airways"
+  },
+  {
+    "code": "IJ",
+    "name": "Spring Japan"
+  },
+  {
+    "code": "IK",
+    "name": "Air Kiribati"
+  },
+  {
+    "code": "IL",
+    "name": "Trigana Air Service"
+  },
+  {
+    "code": "IM",
+    "name": "Jupiter Jet"
+  },
+  {
+    "code": "IN",
+    "name": "Nam Air"
+  },
+  {
+    "code": "IO",
+    "name": "IrAero"
+  },
+  {
+    "code": "IP",
+    "name": "Pelita Air"
+  },
+  {
+    "code": "IQ",
+    "name": "Qazaq Air"
+  },
+  {
+    "code": "IR",
+    "name": "Iran Air"
+  },
+  {
+    "code": "IS",
+    "name": "Sepehran Airlines"
+  },
+  {
+    "code": "IT",
+    "name": "Tigerair Taiwan"
+  },
+  {
+    "code": "IU",
+    "name": "Super Air Jet"
+  },
+  {
+    "code": "IW",
+    "name": "Wings Air"
+  },
+  {
+    "code": "IX",
+    "name": "Air India Express"
+  },
+  {
+    "code": "IY",
+    "name": "Yemenia"
+  },
+  {
+    "code": "IZ",
+    "name": "Arkia"
+  },
+  {
+    "code": "J0",
+    "name": "Buffalo Airways"
+  },
+  {
+    "code": "J1",
+    "name": "Verteil Technologies"
+  },
+  {
+    "code": "J2",
+    "name": "Azerbaijan Airlines"
+  },
+  {
+    "code": "J3",
+    "name": "Northwestern Air"
+  },
+  {
+    "code": "J4",
+    "name": "Badr Airlines"
+  },
+  {
+    "code": "J5",
+    "name": "Alaska Seaplanes"
+  },
+  {
+    "code": "J6",
+    "name": "JetSMART Colombia"
+  },
+  {
+    "code": "J7",
+    "name": "FlyGabon"
+  },
+  {
+    "code": "J8",
+    "name": "Berjaya Air"
+  },
+  {
+    "code": "J9",
+    "name": "Jazeera Airways"
+  },
+  {
+    "code": "JA",
+    "name": "JetSMART"
+  },
+  {
+    "code": "JB",
+    "name": "British Caledonian"
+  },
+  {
+    "code": "JC",
+    "name": "Japan Air Commuter"
+  },
+  {
+    "code": "JD",
+    "name": "Beijing Capital"
+  },
+  {
+    "code": "JE",
+    "name": "Jettainer"
+  },
+  {
+    "code": "JF",
+    "name": "OTT Airlines"
+  },
+  {
+    "code": "JH",
+    "name": "Fuji Dream Airlines"
+  },
+  {
+    "code": "JI",
+    "name": "Armenian Airlines"
+  },
+  {
+    "code": "JJ",
+    "name": "LATAM Brasil"
+  },
+  {
+    "code": "JL",
+    "name": "Jet Linx Aviation"
+  },
+  {
+    "code": "JM",
+    "name": "Jambojet"
+  },
+  {
+    "code": "JN",
+    "name": "Alaska Air Transit"
+  },
+  {
+    "code": "JO",
+    "name": "Jasmin Airways"
+  },
+  {
+    "code": "JP",
+    "name": "Jettime"
+  },
+  {
+    "code": "JQ",
+    "name": "Jetstar Airways"
+  },
+  {
+    "code": "JR",
+    "name": "Air Yugoslavia"
+  },
+  {
+    "code": "JS",
+    "name": "Air Koryo"
+  },
+  {
+    "code": "JT",
+    "name": "Lion Airlines"
+  },
+  {
+    "code": "JU",
+    "name": "Air Serbia"
+  },
+  {
+    "code": "JV",
+    "name": "Bearskin Airlines"
+  },
+  {
+    "code": "JW",
+    "name": "Private Wings"
+  },
+  {
+    "code": "JX",
+    "name": "Jambojet"
+  },
+  {
+    "code": "JY",
+    "name": "National Air"
+  },
+  {
+    "code": "JZ",
+    "name": "jetSMART Peru"
+  },
+  {
+    "code": "K1",
+    "name": "LLM Aviation"
+  },
+  {
+    "code": "K2",
+    "name": "K2 Airways"
+  },
+  {
+    "code": "K3",
+    "name": "Safe Air"
+  },
+  {
+    "code": "K4",
+    "name": "Kalitta Air"
+  },
+  {
+    "code": "K5",
+    "name": "Skycooler"
+  },
+  {
+    "code": "K6",
+    "name": "Air Cambodia"
+  },
+  {
+    "code": "K7",
+    "name": "Mingalar"
+  },
+  {
+    "code": "K9",
+    "name": "TezJet"
+  },
+  {
+    "code": "KA",
+    "name": "Aero Nomad Airlines"
+  },
+  {
+    "code": "KB",
+    "name": "Druk Air Corporation"
+  },
+  {
+    "code": "KC",
+    "name": "Air Astana"
+  },
+  {
+    "code": "KD",
+    "name": "Western Global"
+  },
+  {
+    "code": "KE",
+    "name": "Korean Air"
+  },
+  {
+    "code": "KF",
+    "name": "Congofrigo"
+  },
+  {
+    "code": "KG",
+    "name": "Key Lime Air"
+  },
+  {
+    "code": "KI",
+    "name": "Trabajos Aéreos"
+  },
+  {
+    "code": "KJ",
+    "name": "KlasJet"
+  },
+  {
+    "code": "KK",
+    "name": "LEAV Aviation"
+  },
+  {
+    "code": "KL",
+    "name": "KLM"
+  },
+  {
+    "code": "KM",
+    "name": "KM Malta Airlines"
+  },
+  {
+    "code": "KN",
+    "name": "China United"
+  },
+  {
+    "code": "KP",
+    "name": "ASKY"
+  },
+  {
+    "code": "KQ",
+    "name": "Kenya Airways"
+  },
+  {
+    "code": "KR",
+    "name": "Cambodia Airways"
+  },
+  {
+    "code": "KS",
+    "name": "FlyJaya"
+  },
+  {
+    "code": "KT",
+    "name": "AirAsia Cambodia"
+  },
+  {
+    "code": "KU",
+    "name": "Kuwait Airways"
+  },
+  {
+    "code": "KV",
+    "name": "Krasavia"
+  },
+  {
+    "code": "KW",
+    "name": "AeroStan"
+  },
+  {
+    "code": "KX",
+    "name": "Cayman Airways"
+  },
+  {
+    "code": "KY",
+    "name": "Kunming Airlines"
+  },
+  {
+    "code": "L3",
+    "name": "DHL de Guatemala"
+  },
+  {
+    "code": "L4",
+    "name": "The Landline Company"
+  },
+  {
+    "code": "L6",
+    "name": "Mauritania Airlines"
+  },
+  {
+    "code": "L8",
+    "name": "Lulutai Airlines"
+  },
+  {
+    "code": "L9",
+    "name": "Lumiwings"
+  },
+  {
+    "code": "LA",
+    "name": "LATAM Airlines Chile"
+  },
+  {
+    "code": "LB",
+    "name": "Bul Air"
+  },
+  {
+    "code": "LC",
+    "name": " La Costeña"
+  },
+  {
+    "code": "LD",
+    "name": "AHK Air Hong Kong"
+  },
+  {
+    "code": "LE",
+    "name": "St Barth Executive"
+  },
+  {
+    "code": "LG",
+    "name": "Luxair"
+  },
+  {
+    "code": "LH",
+    "name": "Lufthansa"
+  },
+  {
+    "code": "LI",
+    "name": "ETF Airways"
+  },
+  {
+    "code": "LJ",
+    "name": "Jin Air"
+  },
+  {
+    "code": "LK",
+    "name": "Lao Skyway"
+  },
+  {
+    "code": "LL",
+    "name": "LEVEL"
+  },
+  {
+    "code": "LM",
+    "name": "Loganair"
+  },
+  {
+    "code": "LN",
+    "name": "Libyan Airlines"
+  },
+  {
+    "code": "LO",
+    "name": "LOT Polish"
+  },
+  {
+    "code": "LQ",
+    "name": "Airpac Airlines"
+  },
+  {
+    "code": "LR",
+    "name": "Avianca Costa Rica"
+  },
+  {
+    "code": "LS",
+    "name": "Jet2.com"
+  },
+  {
+    "code": "LT",
+    "name": "LEAF"
+  },
+  {
+    "code": "LU",
+    "name": "LATAM Airlines Chile"
+  },
+  {
+    "code": "LV",
+    "name": "AIRZENA"
+  },
+  {
+    "code": "LW",
+    "name": "Lauda Europe"
+  },
+  {
+    "code": "LX",
+    "name": "Swiss"
+  },
+  {
+    "code": "LY",
+    "name": "EL AL"
+  },
+  {
+    "code": "LZ",
+    "name": "Legend Airlines"
+  },
+  {
+    "code": "M0",
+    "name": "Aero Mongolia"
+  },
+  {
+    "code": "M2",
+    "name": "Millon Express"
+  },
+  {
+    "code": "M4",
+    "name": "Poste Air Cargo"
+  },
+  {
+    "code": "M5",
+    "name": "Kenmore Air"
+  },
+  {
+    "code": "M6",
+    "name": "Amerijet"
+  },
+  {
+    "code": "M8",
+    "name": "Euroavia Airlines"
+  },
+  {
+    "code": "M9",
+    "name": "Motor-Sich"
+  },
+  {
+    "code": "MB",
+    "name": "MNG Airlines"
+  },
+  {
+    "code": "MD",
+    "name": "Air Madagascar"
+  },
+  {
+    "code": "ME",
+    "name": "MEA"
+  },
+  {
+    "code": "MF",
+    "name": "Xiamen Airlines"
+  },
+  {
+    "code": "MG",
+    "name": "Eznis Airways"
+  },
+  {
+    "code": "MH",
+    "name": "Malaysia Airlines"
+  },
+  {
+    "code": "MI",
+    "name": "Black Stone Airlines"
+  },
+  {
+    "code": "MJ",
+    "name": "MyWay Airlines"
+  },
+  {
+    "code": "ML",
+    "name": "Sky Mali"
+  },
+  {
+    "code": "MM",
+    "name": "Peach"
+  },
+  {
+    "code": "MN",
+    "name": "Asman Airlines"
+  },
+  {
+    "code": "MO",
+    "name": "Calm Air"
+  },
+  {
+    "code": "MP",
+    "name": "Afcom Cargo"
+  },
+  {
+    "code": "MQ",
+    "name": "Envoy Air"
+  },
+  {
+    "code": "MR",
+    "name": "Hunnu Air"
+  },
+  {
+    "code": "MS",
+    "name": "Egyptair"
+  },
+  {
+    "code": "MT",
+    "name": "Malta MedAir"
+  },
+  {
+    "code": "MU",
+    "name": "China Eastern"
+  },
+  {
+    "code": "MW",
+    "name": "Maya Airways"
+  },
+  {
+    "code": "MX",
+    "name": "Breeze Airways"
+  },
+  {
+    "code": "MY",
+    "name": "Maswings"
+  },
+  {
+    "code": "MZ",
+    "name": "Amakusa Airlines"
+  },
+  {
+    "code": "N0",
+    "name": "Norse Atlantic"
+  },
+  {
+    "code": "N2",
+    "name": "Aero"
+  },
+  {
+    "code": "N3",
+    "name": "Volaris El Salvador"
+  },
+  {
+    "code": "N4",
+    "name": "Nordwind Airlines"
+  },
+  {
+    "code": "N5",
+    "name": "Nolinor Aviation"
+  },
+  {
+    "code": "N6",
+    "name": "TCA"
+  },
+  {
+    "code": "N7",
+    "name": "NORRA"
+  },
+  {
+    "code": "N8",
+    "name": "National Airlines"
+  },
+  {
+    "code": "N9",
+    "name": "Shree Airlines"
+  },
+  {
+    "code": "NA",
+    "name": "Nomad Aviation"
+  },
+  {
+    "code": "NB",
+    "name": "Berniq Airways"
+  },
+  {
+    "code": "ND",
+    "name": "Inter-Canadian"
+  },
+  {
+    "code": "NE",
+    "name": "Nesma Airlines"
+  },
+  {
+    "code": "NF",
+    "name": "Air Vanuatu"
+  },
+  {
+    "code": "NG",
+    "name": "NOVAIR"
+  },
+  {
+    "code": "NH",
+    "name": "All Nippon Airways"
+  },
+  {
+    "code": "NI",
+    "name": "TAP Express"
+  },
+  {
+    "code": "NJ",
+    "name": "ROMCargo Airlines"
+  },
+  {
+    "code": "NK",
+    "name": "Spirit Airlines"
+  },
+  {
+    "code": "NL",
+    "name": "Amelia International"
+  },
+  {
+    "code": "NM",
+    "name": "Air Moana"
+  },
+  {
+    "code": "NN",
+    "name": "CTTTS"
+  },
+  {
+    "code": "NO",
+    "name": "Neos"
+  },
+  {
+    "code": "NP",
+    "name": "Nile Air"
+  },
+  {
+    "code": "NQ",
+    "name": "Air Japan"
+  },
+  {
+    "code": "NS",
+    "name": "Hebei Airlines"
+  },
+  {
+    "code": "NT",
+    "name": "Binter Canarias"
+  },
+  {
+    "code": "NU",
+    "name": "New Way Cargo"
+  },
+  {
+    "code": "NW",
+    "name": "Northwest Airlines"
+  },
+  {
+    "code": "NX",
+    "name": "Air Macau"
+  },
+  {
+    "code": "NY",
+    "name": "New York Airways"
+  },
+  {
+    "code": "NZ",
+    "name": "Air New Zealand"
+  },
+  {
+    "code": "O2",
+    "name": "Hopscotch Air"
+  },
+  {
+    "code": "O3",
+    "name": "SF Airlines"
+  },
+  {
+    "code": "O4",
+    "name": "Andes Lineas Aereas"
+  },
+  {
+    "code": "O6",
+    "name": "Oceanair"
+  },
+  {
+    "code": "O8",
+    "name": "Marathon Airlines"
+  },
+  {
+    "code": "O9",
+    "name": "Indus Airways"
+  },
+  {
+    "code": "OA",
+    "name": "Olympic Air"
+  },
+  {
+    "code": "OB",
+    "name": "BoA"
+  },
+  {
+    "code": "OC",
+    "name": "Oriental Air Bridge"
+  },
+  {
+    "code": "OD",
+    "name": "Batik Air"
+  },
+  {
+    "code": "OE",
+    "name": "Fly One Airlines"
+  },
+  {
+    "code": "OG",
+    "name": "Star Air"
+  },
+  {
+    "code": "OI",
+    "name": "Hinterland Aviation"
+  },
+  {
+    "code": "OJ",
+    "name": "Nyxair"
+  },
+  {
+    "code": "OK",
+    "name": "Czech Airlines"
+  },
+  {
+    "code": "OL",
+    "name": "Samoa Airways"
+  },
+  {
+    "code": "OM",
+    "name": "MIAT"
+  },
+  {
+    "code": "ON",
+    "name": "Nauru Airlines"
+  },
+  {
+    "code": "OQ",
+    "name": "Chong Qing Airlines"
+  },
+  {
+    "code": "OR",
+    "name": "TUI fly Netherlands"
+  },
+  {
+    "code": "OS",
+    "name": "Austrian"
+  },
+  {
+    "code": "OT",
+    "name": "Avant Airlines"
+  },
+  {
+    "code": "OU",
+    "name": "Croatia Airlines"
+  },
+  {
+    "code": "OV",
+    "name": "SalamAir"
+  },
+  {
+    "code": "OW",
+    "name": "Skyward Airlines"
+  },
+  {
+    "code": "OX",
+    "name": "Skyline"
+  },
+  {
+    "code": "OY",
+    "name": "Omni Air Express"
+  },
+  {
+    "code": "OZ",
+    "name": "Asiana Airlines"
+  },
+  {
+    "code": "P0",
+    "name": "Proflight"
+  },
+  {
+    "code": "P1",
+    "name": "PublicCharters.com"
+  },
+  {
+    "code": "P2",
+    "name": "Airkenya Express"
+  },
+  {
+    "code": "P4",
+    "name": "Air Peace"
+  },
+  {
+    "code": "P5",
+    "name": "wingo"
+  },
+  {
+    "code": "P6",
+    "name": "Pascan"
+  },
+  {
+    "code": "P7",
+    "name": "Supernova Airlines"
+  },
+  {
+    "code": "P8",
+    "name": "SprintAir"
+  },
+  {
+    "code": "P9",
+    "name": "Asia Pacific"
+  },
+  {
+    "code": "PA",
+    "name": "Airblue"
+  },
+  {
+    "code": "PB",
+    "name": "PAL Airlines"
+  },
+  {
+    "code": "PD",
+    "name": "Porter Airlines"
+  },
+  {
+    "code": "PE",
+    "name": "People’s"
+  },
+  {
+    "code": "PF",
+    "name": "AirSial"
+  },
+  {
+    "code": "PG",
+    "name": "Bangkok Airways"
+  },
+  {
+    "code": "PH",
+    "name": "Phoenix Air Group"
+  },
+  {
+    "code": "PI",
+    "name": "SmallFly"
+  },
+  {
+    "code": "PJ",
+    "name": "Air Saint Pierre"
+  },
+  {
+    "code": "PK",
+    "name": "PIA"
+  },
+  {
+    "code": "PL",
+    "name": "Southern Air"
+  },
+  {
+    "code": "PM",
+    "name": "Prescott Support"
+  },
+  {
+    "code": "PN",
+    "name": "China West Air"
+  },
+  {
+    "code": "PP",
+    "name": "Propair."
+  },
+  {
+    "code": "PQ",
+    "name": "SkyUp Airlines"
+  },
+  {
+    "code": "PR",
+    "name": "Philippine Airlines"
+  },
+  {
+    "code": "PS",
+    "name": "UIA"
+  },
+  {
+    "code": "PU",
+    "name": "Plus Ultra"
+  },
+  {
+    "code": "PV",
+    "name": "Saint Barth Commuter"
+  },
+  {
+    "code": "PW",
+    "name": "Precision Air"
+  },
+  {
+    "code": "PY",
+    "name": "Surinam Airways"
+  },
+  {
+    "code": "PZ",
+    "name": "LATAM Paraguay"
+  },
+  {
+    "code": "Q2",
+    "name": "Maldivian"
+  },
+  {
+    "code": "Q3",
+    "name": "Anguilla Air"
+  },
+  {
+    "code": "Q4",
+    "name": "euroairlines"
+  },
+  {
+    "code": "Q5",
+    "name": "40-Mile Air"
+  },
+  {
+    "code": "Q6",
+    "name": "Volaris Costa Rica"
+  },
+  {
+    "code": "Q7",
+    "name": "DHL Air (Austria)"
+  },
+  {
+    "code": "Q8",
+    "name": "PEACH Cargo"
+  },
+  {
+    "code": "Q9",
+    "name": "Green Africa Airways"
+  },
+  {
+    "code": "QB",
+    "name": "Qeshm Air"
+  },
+  {
+    "code": "QC",
+    "name": "Camair-Co"
+  },
+  {
+    "code": "QD",
+    "name": "TAS"
+  },
+  {
+    "code": "QF",
+    "name": "Qantas Airways"
+  },
+  {
+    "code": "QG",
+    "name": "Citilink Indonesia"
+  },
+  {
+    "code": "QH",
+    "name": "Bamboo Airways"
+  },
+  {
+    "code": "QI",
+    "name": "Ibom Airlines"
+  },
+  {
+    "code": "QJ",
+    "name": "Jet Airways"
+  },
+  {
+    "code": "QK",
+    "name": "Jazz Aviation"
+  },
+  {
+    "code": "QL",
+    "name": "LASER Airlines"
+  },
+  {
+    "code": "QM",
+    "name": "Monacair"
+  },
+  {
+    "code": "QN",
+    "name": "Smartlynx Australia"
+  },
+  {
+    "code": "QP",
+    "name": "Akasa Air"
+  },
+  {
+    "code": "QQ",
+    "name": "Alliance Airlines"
+  },
+  {
+    "code": "QR",
+    "name": "Qatar Airways"
+  },
+  {
+    "code": "QS",
+    "name": "Smartwings"
+  },
+  {
+    "code": "QU",
+    "name": "Skyline Express"
+  },
+  {
+    "code": "QV",
+    "name": "Lao Airlines"
+  },
+  {
+    "code": "QW",
+    "name": "Qingdao Airlines"
+  },
+  {
+    "code": "QX",
+    "name": "Horizon Air"
+  },
+  {
+    "code": "QY",
+    "name": "European Air"
+  },
+  {
+    "code": "QZ",
+    "name": "Indonesia AirAsia"
+  },
+  {
+    "code": "R2",
+    "name": "Groupe Transair"
+  },
+  {
+    "code": "R3",
+    "name": "Yakutia Air"
+  },
+  {
+    "code": "R6",
+    "name": "DAT"
+  },
+  {
+    "code": "R7",
+    "name": "7Air Cargo"
+  },
+  {
+    "code": "RA",
+    "name": "Nepal Airlines"
+  },
+  {
+    "code": "RB",
+    "name": "Syrian Arab Airlines"
+  },
+  {
+    "code": "RC",
+    "name": "Atlantic Airways"
+  },
+  {
+    "code": "RE",
+    "name": "Airhub Airlines"
+  },
+  {
+    "code": "RF",
+    "name": "E-Cargo Airlines"
+  },
+  {
+    "code": "RG",
+    "name": "Rotana Jet"
+  },
+  {
+    "code": "RI",
+    "name": "RIMBUN AIR"
+  },
+  {
+    "code": "RJ",
+    "name": "Royal Jordanian"
+  },
+  {
+    "code": "RK",
+    "name": "Ryanair UK"
+  },
+  {
+    "code": "RL",
+    "name": "Royal Flight"
+  },
+  {
+    "code": "RM",
+    "name": "Regional Air"
+  },
+  {
+    "code": "RN",
+    "name": "Aeronexus"
+  },
+  {
+    "code": "RO",
+    "name": "TAROM"
+  },
+  {
+    "code": "RP",
+    "name": "BASe Airlines"
+  },
+  {
+    "code": "RQ",
+    "name": "Kam Air"
+  },
+  {
+    "code": "RR",
+    "name": "BUZZ"
+  },
+  {
+    "code": "RS",
+    "name": "Air Seoul"
+  },
+  {
+    "code": "RT",
+    "name": "UVT aero"
+  },
+  {
+    "code": "RV",
+    "name": "Air Canada rouge"
+  },
+  {
+    "code": "RW",
+    "name": "royalair philippines"
+  },
+  {
+    "code": "RX",
+    "name": "Riyadh Air"
+  },
+  {
+    "code": "RY",
+    "name": "Jiangxi Air"
+  },
+  {
+    "code": "RZ",
+    "name": "SANSA"
+  },
+  {
+    "code": "S0",
+    "name": "Aerolineas Sosa"
+  },
+  {
+    "code": "S2",
+    "name": "SAPSAN Airline"
+  },
+  {
+    "code": "S3",
+    "name": "SATCO"
+  },
+  {
+    "code": "S4",
+    "name": "Azores Airlines"
+  },
+  {
+    "code": "S5",
+    "name": "Abakan Air"
+  },
+  {
+    "code": "S6",
+    "name": "Sunrise Airways"
+  },
+  {
+    "code": "S7",
+    "name": "S7 Airlines"
+  },
+  {
+    "code": "S8",
+    "name": "Sky Capital Airlines"
+  },
+  {
+    "code": "S9",
+    "name": "FlyBig"
+  },
+  {
+    "code": "SA",
+    "name": "Sirius-Aero"
+  },
+  {
+    "code": "SB",
+    "name": "Aircalin"
+  },
+  {
+    "code": "SC",
+    "name": "Shandong Airlines"
+  },
+  {
+    "code": "SD",
+    "name": "Sudan Airways"
+  },
+  {
+    "code": "SE",
+    "name": "Sky Vision Airlines"
+  },
+  {
+    "code": "SF",
+    "name": "Tassili Airlines"
+  },
+  {
+    "code": "SG",
+    "name": "SpiceJet"
+  },
+  {
+    "code": "SH",
+    "name": "SolitAir"
+  },
+  {
+    "code": "SI",
+    "name": "Sierra Pacific"
+  },
+  {
+    "code": "SJ",
+    "name": "Sriwijaya Air"
+  },
+  {
+    "code": "SK",
+    "name": "SAS"
+  },
+  {
+    "code": "SL",
+    "name": "SAS Connect"
+  },
+  {
+    "code": "SM",
+    "name": "Air Cairo"
+  },
+  {
+    "code": "SN",
+    "name": "Brussels Airlines"
+  },
+  {
+    "code": "SP",
+    "name": "SATA - Air Acores"
+  },
+  {
+    "code": "SQ",
+    "name": "Singapore Airlines"
+  },
+  {
+    "code": "SR",
+    "name": "Skyway Airlines"
+  },
+  {
+    "code": "SS",
+    "name": "CorsAir"
+  },
+  {
+    "code": "ST",
+    "name": "Western Aircraft"
+  },
+  {
+    "code": "SU",
+    "name": "Aeroflot"
+  },
+  {
+    "code": "SV",
+    "name": "Saudia"
+  },
+  {
+    "code": "SW",
+    "name": "Swiss Airtainer"
+  },
+  {
+    "code": "SX",
+    "name": "Skywagon"
+  },
+  {
+    "code": "SY",
+    "name": "Sun Country Airlines"
+  },
+  {
+    "code": "SZ",
+    "name": "Somon Air"
+  },
+  {
+    "code": "T0",
+    "name": "TACA Peru"
+  },
+  {
+    "code": "T2",
+    "name": "West Atlantic Sweden"
+  },
+  {
+    "code": "T3",
+    "name": "Eastern Airways"
+  },
+  {
+    "code": "T4",
+    "name": "Topre Corporation"
+  },
+  {
+    "code": "T5",
+    "name": "Turkmenistan"
+  },
+  {
+    "code": "T7",
+    "name": "Twin Jet"
+  },
+  {
+    "code": "T8",
+    "name": "Terra Avia"
+  },
+  {
+    "code": "TA",
+    "name": "TashkentAir"
+  },
+  {
+    "code": "TB",
+    "name": "TUI fly Belgium"
+  },
+  {
+    "code": "TC",
+    "name": "Air Tanzania"
+  },
+  {
+    "code": "TD",
+    "name": "Tbilisi Airways"
+  },
+  {
+    "code": "TE",
+    "name": "SkyTaxi"
+  },
+  {
+    "code": "TF",
+    "name": "Braathens Regional"
+  },
+  {
+    "code": "TG",
+    "name": "Thai Airways"
+  },
+  {
+    "code": "TH",
+    "name": "Raya Airways"
+  },
+  {
+    "code": "TI",
+    "name": "Tailwind Airlines"
+  },
+  {
+    "code": "TJ",
+    "name": "Tradewind Aviation"
+  },
+  {
+    "code": "TK",
+    "name": "Turkish Airlines"
+  },
+  {
+    "code": "TL",
+    "name": "Airnorth"
+  },
+  {
+    "code": "TM",
+    "name": "Titan Airways Malta"
+  },
+  {
+    "code": "TN",
+    "name": "Air Tahiti Nui"
+  },
+  {
+    "code": "TO",
+    "name": "Transavia France"
+  },
+  {
+    "code": "TP",
+    "name": "TAP Portugal"
+  },
+  {
+    "code": "TQ",
+    "name": "Towards Air"
+  },
+  {
+    "code": "TR",
+    "name": "Scoot"
+  },
+  {
+    "code": "TS",
+    "name": "Air Transat"
+  },
+  {
+    "code": "TT",
+    "name": "Texel Air"
+  },
+  {
+    "code": "TU",
+    "name": "Tunisair"
+  },
+  {
+    "code": "TV",
+    "name": "Tibet Airlines"
+  },
+  {
+    "code": "TW",
+    "name": "T'Way Airline"
+  },
+  {
+    "code": "TX",
+    "name": "Air Caraibes"
+  },
+  {
+    "code": "TY",
+    "name": "Air Caledonie"
+  },
+  {
+    "code": "TZ",
+    "name": "Air Anka"
+  },
+  {
+    "code": "U2",
+    "name": "easyJet"
+  },
+  {
+    "code": "U3",
+    "name": "Sky Gates Airlines"
+  },
+  {
+    "code": "U5",
+    "name": "SkyUp MT"
+  },
+  {
+    "code": "U6",
+    "name": "Ural Airlines"
+  },
+  {
+    "code": "U7",
+    "name": "Uniworld Air Cargo"
+  },
+  {
+    "code": "U8",
+    "name": "Tus Airways"
+  },
+  {
+    "code": "U9",
+    "name": "Unilode"
+  },
+  {
+    "code": "UA",
+    "name": "United Airlines"
+  },
+  {
+    "code": "UB",
+    "name": "Myanmar National"
+  },
+  {
+    "code": "UD",
+    "name": "UR Airlines"
+  },
+  {
+    "code": "UE",
+    "name": "Ultimate Air Shuttle"
+  },
+  {
+    "code": "UF",
+    "name": "Petroleum Air"
+  },
+  {
+    "code": "UG",
+    "name": "Tunisair Express"
+  },
+  {
+    "code": "UH",
+    "name": "Uzbekistan Heli"
+  },
+  {
+    "code": "UI",
+    "name": "Auric Air"
+  },
+  {
+    "code": "UJ",
+    "name": "USA Jet Airlines"
+  },
+  {
+    "code": "UK",
+    "name": "British Island"
+  },
+  {
+    "code": "UL",
+    "name": "SriLankan Airlines"
+  },
+  {
+    "code": "UM",
+    "name": "Air Zimbabwe"
+  },
+  {
+    "code": "UN",
+    "name": "Business Aviation"
+  },
+  {
+    "code": "UO",
+    "name": "HK Express"
+  },
+  {
+    "code": "UP",
+    "name": "Bahamasair"
+  },
+  {
+    "code": "UQ",
+    "name": "Urumqi Airlines"
+  },
+  {
+    "code": "UR",
+    "name": "Uganda Airlines"
+  },
+  {
+    "code": "US",
+    "name": "silkavia"
+  },
+  {
+    "code": "UT",
+    "name": "Utair Aviation"
+  },
+  {
+    "code": "UU",
+    "name": "Air Austral"
+  },
+  {
+    "code": "UV",
+    "name": "Universal Airways"
+  },
+  {
+    "code": "UW",
+    "name": "Perimeter Aviation"
+  },
+  {
+    "code": "UX",
+    "name": "Air Europa"
+  },
+  {
+    "code": "UY",
+    "name": "umzaXpress"
+  },
+  {
+    "code": "UZ",
+    "name": "Buraq Air Transport"
+  },
+  {
+    "code": "V0",
+    "name": "Conviasa"
+  },
+  {
+    "code": "V2",
+    "name": "Avialeasing"
+  },
+  {
+    "code": "V3",
+    "name": "Carpatair"
+  },
+  {
+    "code": "V4",
+    "name": "Vensecar"
+  },
+  {
+    "code": "V5",
+    "name": "Aerovias DAP"
+  },
+  {
+    "code": "V6",
+    "name": "Serve Air Cargo"
+  },
+  {
+    "code": "V7",
+    "name": "Volotea"
+  },
+  {
+    "code": "V9",
+    "name": "Van Air Europe"
+  },
+  {
+    "code": "VA",
+    "name": "Virgin Australia"
+  },
+  {
+    "code": "VB",
+    "name": "viva"
+  },
+  {
+    "code": "VC",
+    "name": "Sterling Airways"
+  },
+  {
+    "code": "VF",
+    "name": "Fly Armenia Airways"
+  },
+  {
+    "code": "VG",
+    "name": "Fly Vaayu"
+  },
+  {
+    "code": "VH",
+    "name": "Aeropostal"
+  },
+  {
+    "code": "VJ",
+    "name": "Vietjet Air"
+  },
+  {
+    "code": "VK",
+    "name": "ValueJet"
+  },
+  {
+    "code": "VL",
+    "name": "Lufthansa City"
+  },
+  {
+    "code": "VN",
+    "name": "Vietnam Airlines"
+  },
+  {
+    "code": "VO",
+    "name": "Universal Air"
+  },
+  {
+    "code": "VP",
+    "name": "Villa Air"
+  },
+  {
+    "code": "VQ",
+    "name": "Novoair"
+  },
+  {
+    "code": "VR",
+    "name": "Cabo Verde Airlines"
+  },
+  {
+    "code": "VS",
+    "name": "Virgin Atlantic"
+  },
+  {
+    "code": "VT",
+    "name": "Air Tahiti"
+  },
+  {
+    "code": "VU",
+    "name": "Vietravel Airlines"
+  },
+  {
+    "code": "VV",
+    "name": "Pattaya Airways"
+  },
+  {
+    "code": "VW",
+    "name": "Virgin Air"
+  },
+  {
+    "code": "VX",
+    "name": "VIAT"
+  },
+  {
+    "code": "VY",
+    "name": "Vueling Airlines"
+  },
+  {
+    "code": "VZ",
+    "name": "Air Class"
+  },
+  {
+    "code": "W2",
+    "name": "Flexflight"
+  },
+  {
+    "code": "W3",
+    "name": "Arik Air"
+  },
+  {
+    "code": "W4",
+    "name": "Wizz Air Malta"
+  },
+  {
+    "code": "W5",
+    "name": "Mahan Air"
+  },
+  {
+    "code": "W6",
+    "name": "Wizz Air"
+  },
+  {
+    "code": "W7",
+    "name": "Makers Air"
+  },
+  {
+    "code": "W9",
+    "name": "Wizz Air UK"
+  },
+  {
+    "code": "WA",
+    "name": "KLM Cityhopper"
+  },
+  {
+    "code": "WB",
+    "name": "RwandAir"
+  },
+  {
+    "code": "WC",
+    "name": "Meregrass"
+  },
+  {
+    "code": "WE",
+    "name": "Westward Airways"
+  },
+  {
+    "code": "WF",
+    "name": "Wideroe's"
+  },
+  {
+    "code": "WG",
+    "name": "Fairflight Charters"
+  },
+  {
+    "code": "WH",
+    "name": "wingo"
+  },
+  {
+    "code": "WI",
+    "name": "White Airways"
+  },
+  {
+    "code": "WJ",
+    "name": "JetSmart Airlines"
+  },
+  {
+    "code": "WK",
+    "name": "Edelweiss Air"
+  },
+  {
+    "code": "WL",
+    "name": "World Atlantic"
+  },
+  {
+    "code": "WM",
+    "name": "Winair"
+  },
+  {
+    "code": "WN",
+    "name": "Southwest Airlines"
+  },
+  {
+    "code": "WO",
+    "name": "National Jet Express"
+  },
+  {
+    "code": "WP",
+    "name": "Wasaya Airways"
+  },
+  {
+    "code": "WR",
+    "name": "Westjet Encore"
+  },
+  {
+    "code": "WS",
+    "name": "Westjet"
+  },
+  {
+    "code": "WT",
+    "name": "Swiftair"
+  },
+  {
+    "code": "WU",
+    "name": "Western Air"
+  },
+  {
+    "code": "WV",
+    "name": "FlyNamibia"
+  },
+  {
+    "code": "WW",
+    "name": "MJets Air"
+  },
+  {
+    "code": "WX",
+    "name": "Cityjet"
+  },
+  {
+    "code": "WY",
+    "name": "Oman Air"
+  },
+  {
+    "code": "WZ",
+    "name": "Red Wings Airlines"
+  },
+  {
+    "code": "X1",
+    "name": "Hahn Air"
+  },
+  {
+    "code": "X3",
+    "name": "TUIFly"
+  },
+  {
+    "code": "X4",
+    "name": "Alaska Seaplanes"
+  },
+  {
+    "code": "X5",
+    "name": "Air Europa Express"
+  },
+  {
+    "code": "X7",
+    "name": "Challenge Airlines"
+  },
+  {
+    "code": "X8",
+    "name": "Avion Express Malta"
+  },
+  {
+    "code": "X9",
+    "name": "Avion Express"
+  },
+  {
+    "code": "XA",
+    "name": "ARINC"
+  },
+  {
+    "code": "XC",
+    "name": "Corendon Airlines"
+  },
+  {
+    "code": "XD",
+    "name": "SATO Airlines"
+  },
+  {
+    "code": "XE",
+    "name": "JSX Air"
+  },
+  {
+    "code": "XF",
+    "name": "Mongolian Cargo"
+  },
+  {
+    "code": "XG",
+    "name": "USC"
+  },
+  {
+    "code": "XJ",
+    "name": "Thai AirAsia X"
+  },
+  {
+    "code": "XK",
+    "name": "Air Corsica"
+  },
+  {
+    "code": "XL",
+    "name": "Texel Air"
+  },
+  {
+    "code": "XM",
+    "name": "Zimex Aviation"
+  },
+  {
+    "code": "XO",
+    "name": "SEAir"
+  },
+  {
+    "code": "XP",
+    "name": "Avelo Airlines"
+  },
+  {
+    "code": "XQ",
+    "name": "SunExpress"
+  },
+  {
+    "code": "XR",
+    "name": "Corendon Europe"
+  },
+  {
+    "code": "XT",
+    "name": "Aerlink"
+  },
+  {
+    "code": "XU",
+    "name": "African Express"
+  },
+  {
+    "code": "XV",
+    "name": "Ivoire Airways"
+  },
+  {
+    "code": "XW",
+    "name": "Orbit Express"
+  },
+  {
+    "code": "XX",
+    "name": "Major Airline"
+  },
+  {
+    "code": "XY",
+    "name": "flynas"
+  },
+  {
+    "code": "XZ",
+    "name": "Aeroitalia"
+  },
+  {
+    "code": "Y2",
+    "name": "Air Century"
+  },
+  {
+    "code": "Y5",
+    "name": "Hayways"
+  },
+  {
+    "code": "Y7",
+    "name": "NordStar"
+  },
+  {
+    "code": "Y8",
+    "name": "Suparna Airlines"
+  },
+  {
+    "code": "Y9",
+    "name": "SKYGUARD Cargo"
+  },
+  {
+    "code": "YC",
+    "name": "Yamal Airlines"
+  },
+  {
+    "code": "YE",
+    "name": "Yanair"
+  },
+  {
+    "code": "YG",
+    "name": "YTO Cargo Airlines"
+  },
+  {
+    "code": "YI",
+    "name": "FLY OYA"
+  },
+  {
+    "code": "YJ",
+    "name": "National Airlines"
+  },
+  {
+    "code": "YK",
+    "name": "Avia Traffic Company"
+  },
+  {
+    "code": "YL",
+    "name": "Libyan Wings"
+  },
+  {
+    "code": "YM",
+    "name": "Compass Airlines"
+  },
+  {
+    "code": "YN",
+    "name": "Air Creebec"
+  },
+  {
+    "code": "YO",
+    "name": "Heli Air Monaco"
+  },
+  {
+    "code": "YP",
+    "name": "Air Premia"
+  },
+  {
+    "code": "YQ",
+    "name": "TAR México"
+  },
+  {
+    "code": "YR",
+    "name": "Scenic Airlines"
+  },
+  {
+    "code": "YS",
+    "name": "Flightlink"
+  },
+  {
+    "code": "YT",
+    "name": "Yeti Airlines"
+  },
+  {
+    "code": "YU",
+    "name": "EuroAtlantic Airways"
+  },
+  {
+    "code": "YW",
+    "name": "Air Nostrum"
+  },
+  {
+    "code": "YX",
+    "name": "Republic Airline"
+  },
+  {
+    "code": "Z0",
+    "name": "Norse Atlantic UK"
+  },
+  {
+    "code": "Z2",
+    "name": "AirAsia Philippines"
+  },
+  {
+    "code": "Z3",
+    "name": "Avion Express Brasil"
+  },
+  {
+    "code": "Z4",
+    "name": "Fly Red Sea"
+  },
+  {
+    "code": "Z6",
+    "name": "Dniproavia"
+  },
+  {
+    "code": "Z7",
+    "name": "CAMEX Airlines"
+  },
+  {
+    "code": "Z8",
+    "name": "Air Enterprise"
+  },
+  {
+    "code": "Z9",
+    "name": "Aero Zambia"
+  },
+  {
+    "code": "ZA",
+    "name": "Sky Angkor Airlines"
+  },
+  {
+    "code": "ZB",
+    "name": "Air Albania"
+  },
+  {
+    "code": "ZC",
+    "name": "Royal Swazi"
+  },
+  {
+    "code": "ZE",
+    "name": "Eastar Jet"
+  },
+  {
+    "code": "ZF",
+    "name": "Safari Express Cargo"
+  },
+  {
+    "code": "ZG",
+    "name": "Zipair Tokyo"
+  },
+  {
+    "code": "ZH",
+    "name": "Shenzhen Airlines"
+  },
+  {
+    "code": "ZI",
+    "name": "Aigle Azur"
+  },
+  {
+    "code": "ZJ",
+    "name": "ARINC Direct"
+  },
+  {
+    "code": "ZK",
+    "name": "Zetavia"
+  },
+  {
+    "code": "ZL",
+    "name": "Rex"
+  },
+  {
+    "code": "ZM",
+    "name": "Corporate Air"
+  },
+  {
+    "code": "ZN",
+    "name": "Zambia Airways"
+  },
+  {
+    "code": "ZP",
+    "name": "Silk Way"
+  },
+  {
+    "code": "ZR",
+    "name": "Aviacon Zitotrans"
+  },
+  {
+    "code": "ZS",
+    "name": "Aviation Horizons"
+  },
+  {
+    "code": "ZT",
+    "name": "Titan Airways"
+  },
+  {
+    "code": "ZU",
+    "name": "Azman Air"
+  },
+  {
+    "code": "ZV",
+    "name": "Aerus"
+  },
+  {
+    "code": "ZW",
+    "name": "Air Wisconsin"
+  },
+  {
+    "code": "ZX",
+    "name": "Zimex Austria"
+  },
+  {
+    "code": "ZY",
+    "name": "Eznis Airways"
+  },
+  {
+    "code": "AB",
+    "name": "Sun Air Bulgaria"
+  },
+  {
+    "code": "ZZ",
+    "name": "American Eagle"
+  }
+]
